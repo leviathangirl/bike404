@@ -16,15 +16,26 @@ class ListModel
         return $result;
     }
 
+    public function getbyfilter($filter)
+    {
+        if (!is_array($filter)) {
+            return false;
+        }
+
+        $result = M('list')->select();
+
+        return $result;
+    }
+
     public function getbyid($id)
     {
-        if (!is_integer($id)) {
+        if (!is_numeric($id)) {
             return false;
         }
 
         $where = array('id' => $id);
         $field = $this->field;
-        $result = M('list')->where($where)->field($field)->find();
+        $result = M('list')->where($where)->find();
 
         return $result;
     }
@@ -55,17 +66,6 @@ ORDER BY t1.id LIMIT 1;
         $where = array('uuid' => $uuid);
         $field = $this->field;
         $result = M('list')->where($where)->field($field)->find();
-
-        return $result;
-    }
-
-    public function getbyfilter($filter)
-    {
-        if (!is_array($filter)) {
-            return false;
-        }
-
-        $result = M('list')->select();
 
         return $result;
     }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>This is title.</title>
+    <title>This is get page.</title>
 
     <style type="text/css">
         * {
@@ -46,9 +46,8 @@
 
 <body>
     <div style="padding: 24px 48px;">
-        <p>欢迎使用 <b>index</b>！</p>
-        <br/>版本 V0.0.1
-        <br/>ThinkPHP版本 V{$Think.version}</div>
+        <p>欢迎使用 <b>get page</b>！</p>
+        <br/>版本 V0.0.1</div>
 
     <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion="{  }">
         <volist name="result" id="result">
@@ -74,7 +73,6 @@
                         车辆丢失时间：{$result.lost_time}<br>
                         条目创建时间：{$result.create_time}<br>
                         条目更新时间：{$result.update_time}<br>
-                        点击查看详情： <a href="__SELF__/get?id={$result.id}" target="_blank">"__SELF__/get?id={$result.id}"</a>
                     </div>
                 </dd>
 

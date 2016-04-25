@@ -37,6 +37,7 @@ class ApiController extends BaseController
         if (!$result) {
             $this->returnFailure('Query Failed', 1);
         }
+
         $this->returnSuccess(array('$result' => $result));
     }
 
