@@ -40,8 +40,10 @@
         }
     </style>
     <link rel="stylesheet" href="__PUBLIC__/amazeui/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/test.css">
     <script src="__PUBLIC__/amazeui/js/jquery.min.js"></script>
     <script src="__PUBLIC__/amazeui/js/amazeui.min.js"></script>
+    <script src="__PUBLIC__/js/test.js"></script>
 </head>
 
 <body>
@@ -70,12 +72,16 @@
                 </dt>
                 <dd class="am-accordion-bd am-collapse">
                     <div class="am-accordion-content">
-                        描述：{$result.info}<br>
-                        车辆丢失时间：{$result.lost_time}<br>
-                        条目创建时间：{$result.create_time}<br>
-                        条目更新时间：{$result.update_time}<br>
-                        点击查看详情： <a href="__SELF__/get?id={$result.id}" target="_blank">"__SELF__/get?id={$result.id}"</a>
+                        描述：{$result.info}
+                        <br> 车辆丢失时间：{$result.lost_time}
+                        <br> 条目创建时间：{$result.create_time}
+                        <br> 条目更新时间：{$result.update_time}
+                        <br>
+
+
+                        <br> 点击查看图文详情： <a href="__MODULE__/index/get?id={$result.id}" target="_blank">"__MODULE__/index/get?id={$result.id}"</a>
                     </div>
+
                 </dd>
 
             </dl>

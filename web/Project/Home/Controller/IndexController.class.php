@@ -29,7 +29,11 @@ class IndexController extends BaseController
             $this->returnFailure('Query Failed', 1);
         }
 
-        $this->returnSuccess(array('$result' => $result));
+        //$this->returnSuccess(array('$result' => $result));
+
+        $this->assign('result', $result);
+
+        $this->display();
     }
 
     public function random()

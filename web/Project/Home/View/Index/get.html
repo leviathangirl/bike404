@@ -1,87 +1,61 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>This is get page.</title>
+    <head>
+        <meta charset="utf-8">
+        <title>This is get page.</title>
 
-    <style type="text/css">
-        * {
-            padding: 0;
-            margin: 0;
-        }
+        <link rel="stylesheet" href="__PUBLIC__/css/test.css">
+    </head>
 
-        div {
-            padding: 4px 48px;
-        }
+    <body>
+        <script src="__PUBLIC__/amazeui/js/jquery.min.js"></script>
+        <script src="__PUBLIC__/amazeui/js/amazeui.min.js"></script>
 
-        body {
-            background: #fff;
-            font-family: "微软雅黑";
-            color: #333;
-            font-size: 24px
-        }
+        <script src="__PUBLIC__/js/test.js"></script>
 
-        h1 {
-            font-size: 100px;
-            font-weight: normal;
-            margin-bottom: 12px;
-        }
+        <div style="padding: 24px 48px;">
+            <p>欢迎使用
+                <b>get page</b>！</p>
+            <br/>版本 V0.0.1</div>
+        <div>
+            描述
+        </div>
 
-        p {
-            line-height: 1.8em;
-            font-size: 36px
-        }
-
-        a,
-        a:hover,
-        {
-            color: blue;
-        }
-    </style>
-    <link rel="stylesheet" href="__PUBLIC__/amazeui/css/amazeui.min.css">
-    <script src="__PUBLIC__/amazeui/js/jquery.min.js"></script>
-    <script src="__PUBLIC__/amazeui/js/amazeui.min.js"></script>
-</head>
-
-<body>
-    <div style="padding: 24px 48px;">
-        <p>欢迎使用 <b>get page</b>！</p>
-        <br/>版本 V0.0.1</div>
-
-    <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion="{  }">
-        <volist name="result" id="result">
-            <dl class="am-accordion-item">
-
-                <dt class="am-accordion-title">
-                    {$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}:
-                    <if condition="($result.alerted_police eq 0) ">未报警
-                    <elseif condition="($result.alerted_police eq 1)"/>已报警
-                    </if>
-                    :
-                    <if condition="($result.status eq 0) ">未找回
-                    <elseif condition="($result.status eq 1)"/>已自己找回
-                    <elseif condition="($result.status eq 2)"/>已通过本网站找回
-                    <elseif condition="($result.status eq 3)"/>已通过公安找回
-                    <elseif condition="($result.status eq 4)"/>已通过其他网站找回
-                    <elseif condition="($result.status eq 5)"/>已购回找回
-                    </if>
-                </dt>
-                <dd class="am-accordion-bd am-collapse">
-                    <div class="am-accordion-content">
-                        描述：{$result.info}<br>
-                        车辆丢失时间：{$result.lost_time}<br>
-                        条目创建时间：{$result.create_time}<br>
-                        条目更新时间：{$result.update_time}<br>
-                    </div>
-                </dd>
-
-            </dl>
-
-
-        </volist>
-    </section>
-
-</body>
+        <!--
+<img src="/newProject/web/Public/temp/121140.jpg">
+           <img src="__PUBLIC__/temp/121141.jpg">
+           <img src="__PUBLIC__/temp/121142.jpg">
+           <img src="__PUBLIC__/temp/121143.jpg">
+       -->
+        <div id="imgSlider" style="width:805px;margin:12px auto">
+            <div class="container">
+                <div class="slider" id="slide">
+                    <ul>
+                        <li>
+                            <img src="__PUBLIC__/temp/1.jpg" alt="photo1"></li>
+                        <li>
+                            <img src="__PUBLIC__/temp/1.jpg" alt="photo2"></li>
+                        <li>
+                            <img src="__PUBLIC__/temp/2.jpg" alt="photo2"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="details" id="thumbnail">
+                <ul>
+                    <li>
+                        <img src="__PUBLIC__/temp/1.jpg" alt="photo1" id="1"></li>
+                    <li>
+                        <img src="__PUBLIC__/temp/2.jpg" alt="photo2" id="2"></li>
+                    <li>
+                        <img src="__PUBLIC__/temp/3.jpg" alt="photo3" id="3"></li>
+                    <li>
+                        <img src="__PUBLIC__/temp/4.jpg" alt="photo4" id="4"></li>
+                    <li>
+                        <img src="__PUBLIC__/temp/5.jpg" alt="photo5" id="5"></li>
+                </ul>
+            </div>
+        </div>
+    </body>
 
 </html>
