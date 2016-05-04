@@ -1,9 +1,14 @@
+var lastthis;
 $(document).ready(function(){
 	$("#thumbnail ul li img").click(function(){
+        if (lastthis) {
+            $(lastthis).css("outline-style","none");
+        }
+        $(this).css({"outline-style":"dotted","outline-color":"#00ff00"});
+        lastthis=this;
+
         var x = $(this).attr("src");
-        console.log(x);
     	var y = $("#slide ul li:eq(1) img").attr("src");
-        console.log(y);
         if (x == y)
         {
 

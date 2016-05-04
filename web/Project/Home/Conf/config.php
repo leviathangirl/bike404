@@ -6,4 +6,6 @@ return array(
     'DB_USER' => 'newProject',
     'DB_PWD' => 'newProject',
     'DB_PORT' => '3306',
+
+    'IMG_PREFIX'    => 'http://192.168.214.130/newProject/web/Public/temp/',
 );
