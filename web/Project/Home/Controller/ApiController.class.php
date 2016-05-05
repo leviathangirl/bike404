@@ -2,6 +2,8 @@
 
 namespace Home\Controller;
 
+use Think\Controller;
+
 class ApiController extends BaseController
 {
     public function index()

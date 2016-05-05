@@ -3,12 +3,18 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-04-21 09:54:32
+-- Generation Time: 2016-05-05 03:04:09
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `newProject`
@@ -22,10 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `list` (
   `id` int(11) NOT NULL,
-  `title` varchar(80) NOT NULL,
-  `keyword` varchar(100) DEFAULT NULL,
-  `area` varchar(50) DEFAULT NULL,
-  `brand` varchar(20) DEFAULT NULL,
+  `title` varchar(80) DEFAULT NULL COMMENT '标题，目前为空',
+  `keyword` varchar(100) DEFAULT NULL COMMENT '关键词，目前自动生成',
+  `area` varchar(50) DEFAULT NULL COMMENT '市级地区',
+  `brand` varchar(20) DEFAULT NULL COMMENT '品牌，如：美利达',
+  `sub_brand` varchar(20) DEFAULT NULL COMMENT '次级品牌，如：付利威',
   `color` varchar(20) NOT NULL,
   `type` varchar(20) NOT NULL,
   `alerted_police` int(4) NOT NULL DEFAULT '0' COMMENT '是否已报警',
@@ -37,17 +44,18 @@ CREATE TABLE IF NOT EXISTS `list` (
   `contact` varchar(50) DEFAULT NULL,
   `descrpition` text,
   `uuid` varchar(36) DEFAULT '00000000-0000-0000-0000-000000000000',
+  `lost_time` timestamp NULL DEFAULT NULL COMMENT '丢车时间',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `list`
 --
 
-INSERT INTO `list` (`id`, `title`, `keyword`, `area`, `brand`, `color`, `type`, `alerted_police`, `status`, `info`, `image`, `user`, `email`, `contact`, `descrpition`, `uuid`, `create_time`, `update_time`) VALUES
-(1, 'this is title', NULL, NULL, NULL, 'blue', 'normal', 0, 0, 'this is info', NULL, 'admin', 'admin@email.com', 'other conatct', NULL, NULL, '2016-04-21 08:23:07', '2016-04-21 08:23:38'),
-(2, 'title2', 'keyword2', NULL, 'brand2', 'color2', 'type2', 1, 1, 'info2', 'image2', 'user2', 'email2', 'conatct2', NULL, NULL, '2016-04-21 08:23:07', '2016-04-21 08:23:38');
+INSERT INTO `list` (`id`, `title`, `keyword`, `area`, `brand`, `sub_brand`, `color`, `type`, `alerted_police`, `status`, `info`, `image`, `user`, `email`, `contact`, `descrpition`, `uuid`, `lost_time`, `create_time`, `update_time`) VALUES
+(3, '寻车', NULL, '北京', '美利达', NULL, '橙色', '山地车', 0, 0, '本人于2016年4月20日早上约7:50时将自行车停在回龙观东大街地铁站D口停车棚内。晚上19:20时发现被盗。因为自己不是日本人，被盗车辆价值不过万所以没有报警。被盗的是一辆屎黄色美利达付利威500，此车型在北京并不多见。配图是去年拍的，丢的时候没有车筐，年初更换过牙盘护盘和支撑架。', NULL, 'admin', 'admin@email.com', '15600000000', NULL, '00000000-0000-0000-0000-000000000000', NULL, '2016-04-25 03:24:51', '2016-04-25 03:24:51'),
+(4, NULL, NULL, '西安', NULL, NULL, '绿色', '山地车', 0, 0, '学校开学后车子就不见了。', '["1.jpg","2.jpg","3.jpg","4.jpg"]', '', '', NULL, NULL, '00000000-0000-0000-0000-000000000000', '2012-09-04 16:00:00', '2016-04-25 03:46:59', '2016-04-25 03:46:59');
 
 --
 -- Indexes for dumped tables
@@ -67,4 +75,7 @@ ALTER TABLE `list`
 -- AUTO_INCREMENT for table `list`
 --
 ALTER TABLE `list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
