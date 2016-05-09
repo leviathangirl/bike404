@@ -14,24 +14,25 @@ class ApiController extends BaseController
     public function getlist()
     {
         $ListModel = D('List');
-        $result = $ListModel->getall();
+        $list = $ListModel->getall();
 
-        $this->returnSuccess(array('$result' => $result));
+        $this->returnSuccess(array('result' => $list));
     }
 
     public function get()
     {
         $ListModel = D('List');
-        $result = $ListModel->getOneByRadnom($filter);
+        $result = $ListModel->getOneByRadnom();
+        $this->mergeImgUrl($result);
 
-        $this->returnSuccess(array('$result' => $result));
+        $this->returnSuccess(array('result' => $result));
     }
 
     public function getbyid()
     {
         $ListModel = D('List');
         $id = I('get.id');
-        if (!is_integer($id)) {
+        if (!is_numeric($id)) {
             $this->returnFailure('Parameter error', 1);
         }
 
@@ -39,8 +40,9 @@ class ApiController extends BaseController
         if (!$result) {
             $this->returnFailure('Query Failed', 1);
         }
+        $this->mergeImgUrl($result);
 
-        $this->returnSuccess(array('$result' => $result));
+        $this->returnSuccess(array('result' => $result));
     }
 
     public function getbyuuid()
@@ -56,6 +58,16 @@ class ApiController extends BaseController
         if (!$result) {
             $this->returnFailure('Query Failed', 1);
         }
-        $this->returnSuccess(array('$result' => $result));
+        $this->returnSuccess(array('result' => $result));
+    }
+
+    private function mergeImgUrl(&$result)
+    {
+        $Generator = D('Generator');
+        $imgUrlList = $Generator->generateImgUrl($result);
+
+        $result['image'] = $imgUrlList;
+
+        return;
     }
 }

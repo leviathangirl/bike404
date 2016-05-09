@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /index.php/Home/about
+Allow: /index.php/Home/
+Allow: /
+Disallow: *

@@ -6,12 +6,14 @@ class ListModel
 {
     public function __construct()
     {
-        $this->field = 'id,title,keyword,area,brand,color,type,alerted_police,status,info,image,user,email,contact,uuid,create_time,update_time';
+        $this->field = 'id,title,keyword,area,brand,sub_brand,color,type,alerted_police,status,info,image,user,email,contact,descrpition,uuid,lost_time,create_time,update_time';
     }
 
     public function getall()
     {
-        $result = M('list')->select();
+        $field = 'id,area,brand,sub_brand,color,type,alerted_police,status,info,user,email,contact,descrpition,uuid,lost_time,create_time,update_time';
+
+        $result = M('list')->field($field)->select();
 
         return $result;
     }
@@ -53,20 +55,26 @@ class ListModel
         return $result;
     }
 
-    public function getOneByRadnom($filter)
+    public function getOneByRadnom($filter = null)
     {
+        $idList = M('list')->field('id')->select();
+        $random = array_rand($idList);
 
-/*
-SELECT *
-FROM `table` AS t1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM `table`)-(SELECT MIN(id) FROM `table`))+(SELECT MIN(id) FROM `table`)) AS id) AS t2
-WHERE t1.id >= t2.id
-ORDER BY t1.id LIMIT 1;
-*/
+        $where = array('id' => $idList[$random]['id']);
+        if ($filter && !is_array($filter)) {
+            $whereplus = generateWhereByFilter($filter);
+            $where = array_merge($where, $whereplus);
+        }
 
-        $where = array('uuid' => $uuid);
         $field = $this->field;
         $result = M('list')->where($where)->field($field)->find();
 
         return $result;
+    }
+
+    private function generateWhereByFilter($filter)
+    {
+        //{$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}
+        $whereplus = array();
     }
 }

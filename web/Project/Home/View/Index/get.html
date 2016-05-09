@@ -3,42 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>This is get page.</title>
-
-        <style type="text/css">
-            * {
-                padding: 0;
-                margin: 0;
-            }
-
-            div {
-                padding: 4px 48px;
-            }
-
-            body {
-                background: #fff;
-                font-family: "微软雅黑";
-                color: #333;
-                font-size: 24px;
-            }
-
-            h1 {
-                font-size: 100px;
-                font-weight: normal;
-                margin-bottom: 12px;
-            }
-
-            p {
-                line-height: 1.8em;
-                font-size: 36px;
-            }
-            ,
-            a,
-            a:hover {
-                color: blue;
-            }
-
-        </style>
+        <title>{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}</title>
         <link rel="stylesheet" href="__PUBLIC__/amazeui/css/amazeui.min.css">
         <link rel="stylesheet" href="__PUBLIC__/css/test.css">
     </head>
@@ -49,44 +14,61 @@
 
         <script src="__PUBLIC__/js/test.js"></script>
 
-        <div style="padding: 24px 48px;">
-            <p>欢迎使用
-                <b>get page</b>！</p>
-            <br/>版本 V0.0.1</div>
         <section data-am-widget="accordion" class="am-accordion am-accordion-basic">
             <dl class="am-accordion-item am-active am-disabled">
                 <dt class="am-accordion-title">
-                    {$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}:
-                    <if condition="($result.alerted_police eq 0) ">未报警
-                        <elseif condition="($result.alerted_police eq 1)"/>已报警
-                    </if>
-                    :
-                    <if condition="($result.status eq 0) ">未找回
-                        <elseif condition="($result.status eq 1)"/>已自己找回
-                        <elseif condition="($result.status eq 2)"/>已通过本网站找回
-                        <elseif condition="($result.status eq 3)"/>已通过公安找回
-                        <elseif condition="($result.status eq 4)"/>已通过其他网站找回
-                        <elseif condition="($result.status eq 5)"/>已购回找回
-                    </if>
+                    <strong>{$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}:
+                        <if condition="($result.alerted_police eq 0) ">未报警
+                            <elseif condition="($result.alerted_police eq 1)"/>已报警
+                        </if>
+                        :
+                        <if condition="($result.status eq 0) ">未找回
+                            <elseif condition="($result.status eq 1)"/>已自己找回
+                            <elseif condition="($result.status eq 2)"/>已通过本网站找回
+                            <elseif condition="($result.status eq 3)"/>已通过公安找回
+                            <elseif condition="($result.status eq 4)"/>已通过其他网站找回
+                            <elseif condition="($result.status eq 5)"/>已购回找回
+                        </if>
+                    </strong>
                 </dt>
                 <dd class="am-accordion-bd am-collapse am-in">
                     <div class="am-accordion-content">
-                        描述：{$result.info}
                         <br>
-                        车辆丢失时间：{$result.lost_time}
+                        <strong>丢失车辆的地区：</strong>{$result.area}
                         <br>
-                        条目创建时间：{$result.create_time}
+                        <strong>丢失车辆的品牌：</strong>{$result.brand}{$result.sub_brand}
                         <br>
-                        条目更新时间：{$result.update_time}
+                        <strong>丢失车辆的颜色：</strong>{$result.color}
                         <br>
-
+                        <strong>丢失车辆的车型：</strong>{$result.type}
+                        <br>
+                        <strong>报警状态：</strong>
+                        <if condition="($result.alerted_police eq 0) ">未报警
+                            <elseif condition="($result.alerted_police eq 1)"/>已报警
+                        </if>
+                        <br>
+                        <strong>找回状态：</strong>
+                        <if condition="($result.status eq 0) ">未找回
+                            <elseif condition="($result.status eq 1)"/>已自己找回
+                            <elseif condition="($result.status eq 2)"/>已通过本网站找回
+                            <elseif condition="($result.status eq 3)"/>已通过公安找回
+                            <elseif condition="($result.status eq 4)"/>已通过其他网站找回
+                            <elseif condition="($result.status eq 5)"/>已购回找回
+                        </if>
+                        <br>
+                        <strong>其他信息：</strong>{$result.info}
+                        <br>
+                        <br>
+                        <strong>车辆丢失时间：</strong>{$result.lost_time}
+                        <br>
+                        <strong>条目创建时间：</strong>{$result.create_time}
+                        <br>
+                        <strong>条目更新时间：</strong>{$result.update_time}
                     </div>
-
                 </dd>
-
             </dl>
         </section>
-
+        <strong>丢失车辆的照片：</strong>
         <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }">
             <volist name="imgUrlList" id="imgUrlList">
                 <li>
@@ -98,7 +80,12 @@
                 </li>
             </volist>
         </ul>
-
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol)
+                ? " https://"
+                : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1259042697'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1259042697' type='text/javascript'%3E%3C/script%3E"));
+        </script>
     </body>
 
 </html>
