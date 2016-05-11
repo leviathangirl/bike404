@@ -37,27 +37,15 @@ class ApiController extends BaseController
         }
 
         $result = $ListModel->getbyid($id);
-        if (!$result) {
-            $this->returnFailure('Query Failed', 1);
+        if ($result === false) {
+            $this->returnFailure('Query Failed, Something happened', 1);
+        }
+
+        if ($result === null) {
+            $this->returnFailure('Query Failed, No such id', 1);
         }
         $this->mergeImgUrl($result);
 
-        $this->returnSuccess(array('result' => $result));
-    }
-
-    public function getbyuuid()
-    {
-        $ListModel = D('List');
-
-        $uuid = I('get.uuid');
-        if (!is_string($uuid)) {
-            $this->returnFailure('Parameter error', 1);
-        }
-
-        $result = $ListModel->getbyuuid($uuid);
-        if (!$result) {
-            $this->returnFailure('Query Failed', 1);
-        }
         $this->returnSuccess(array('result' => $result));
     }
 

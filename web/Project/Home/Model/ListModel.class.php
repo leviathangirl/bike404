@@ -7,12 +7,48 @@ class ListModel
     public function __construct()
     {
         $this->field = 'id,title,keyword,area,brand,sub_brand,color,type,alerted_police,status,info,image,user,email,contact,descrpition,uuid,lost_time,create_time,update_time';
+
+        $this->list_field = array('id',
+                                    'area',
+                                    'brand',
+                                    'sub_brand',
+                                    'color',
+                                    'type',
+                                    'alerted_police',
+                                    'status',
+                                    'info',
+                                    'image',
+                                    'lost_time',
+                                    'create_time',
+                                    'update_time',
+                                    );
+
+        $this->detail_field = array('id',
+                                    'area',
+                                    'brand',
+                                    'sub_brand',
+                                    'color',
+                                    'type',
+                                    'alerted_police',
+                                    'status',
+                                    'info',
+                                    'image',
+                                    'user',
+                                    'email',
+                                    'contact',
+                                    'lost_time',
+                                    'create_time',
+                                    'update_time',
+);
     }
 
-    public function getall()
+    public function getall($filter = null)
     {
-        $field = 'id,area,brand,sub_brand,color,type,alerted_police,status,info,user,email,contact,descrpition,uuid,lost_time,create_time,update_time';
+        $field = $this->list_field;
 
+        if ($filter) {
+            # code...
+        }
         $result = M('list')->field($field)->select();
 
         return $result;
@@ -42,19 +78,6 @@ class ListModel
         return $result;
     }
 
-    public function getbyuuid($uuid)
-    {
-        if (!is_string($uuid)) {
-            return false;
-        }
-
-        $where = array('uuid' => $uuid);
-        $field = $this->field;
-        $result = M('list')->where($where)->field($field)->find();
-
-        return $result;
-    }
-
     public function getOneByRadnom($filter = null)
     {
         $idList = M('list')->field('id')->select();
@@ -75,6 +98,20 @@ class ListModel
     private function generateWhereByFilter($filter)
     {
         //{$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}
-        $whereplus = array();
+        $where_plus = array();
+        if (array_key_exists('area', $filter)) {
+            $where_plus['area'] = array('like', '%'.$filter['area'].'%');
+        }
+        if (array_key_exists('brand', $filter)) {
+            $where_plus['brand'] = array('like', '%'.$filter['brand'].'%');
+        }
+        if (array_key_exists('color', $filter)) {
+            $where_plus['color'] = array('like', '%'.$filter['color'].'%');
+        }
+        if (array_key_exists('type', $filter)) {
+            $where_plus['type'] = array('like', '%'.$filter['type'].'%');
+        }
+
+        return $where_plus;
     }
 }
