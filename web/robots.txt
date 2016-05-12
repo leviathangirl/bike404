@@ -1,5 +1,7 @@
 User-agent: *
+Allow: /
+Allow: /sitemap.xml
 Allow: /index.php/Home/about
 Allow: /index.php/Home/
-Allow: /
+Allow: /index.php/Home/index/getbyid*
 Disallow: *

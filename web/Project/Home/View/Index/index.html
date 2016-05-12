@@ -8,29 +8,29 @@
         <link type="text/css" rel="stylesheet" href="__PUBLIC__/materialize/css/materialize.min.css" media="screen,projection"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-        <script src="__PUBLIC__/js/jquery-1.12.3.min.js"></script>
 
         <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/test.css" media="screen,projection"/>
 
     </head>
 
     <body>
+        <script src="__PUBLIC__/js/jquery-1.12.3.min.js"></script>
         <script type="text/javascript" src="__PUBLIC__/materialize/js/materialize.min.js"></script>
 
+        <include file="Public/navbar" />
+
         <div class="container">
-            <h1>My bike is 404 not found.
-                <br>v0.0.1 Pre-alpha</h1>
             <h5>这是一个什么网站？这个网站有什么用？为什么要做这个网站？</h5>
             <p>此网站是用于收集并统计自行车丢失情况的网站。
                 <br>此网站记录了各失主丢失车辆的信息，并对外提供API接口用于查询和展示。
                 <br>这个网站的想法源于
                 <strong>NotFound Project</strong>。目前本站仍处于开发阶段。
-                <br>关于本站的更多信息，请点击：<a href="__MODULE__/about">关于本站</a>
+                <br>关于本站的更多信息，请点击左上角的「关于本站」
             </p>
             <ul class="collapsible" data-collapsible="expandable">
                 <li>
                     <div class="collapsible-header active">
-                        <strong>序号:地区:品牌:颜色:车型:报警状态:找回状态</strong>
+                        <strong>序号：地区：品牌：颜色：车型：报警状态：找回状态</strong>
                     </div>
 
                     <div class="collapsible-body"></div>
@@ -39,11 +39,11 @@
                     <li>
                         <div class="collapsible-header">
                             <i class="mdi-image-filter-drama"></i>
-                            {$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}:
+                            {$result.id}：{$result.area}：{$result.brand}{$result.sub_brand}：{$result.color}：{$result.type}：
                             <if condition="($result.alerted_police eq 0) ">未报警
                                 <elseif condition="($result.alerted_police eq 1)"/>已报警
                             </if>
-                            :
+                            ：
                             <if condition="($result.status eq 0) ">未找回
                                 <elseif condition="($result.status eq 1)"/>已自己找回
                                 <elseif condition="($result.status eq 2)"/>已通过本网站找回
@@ -53,16 +53,18 @@
                             </if>
                         </div>
                         <div class="collapsible-body">
-                            <strong>描述：</strong>{$result.info}
-                            <br>
-                            <strong>车辆丢失时间：</strong>{$result.lost_time}
-                            <br>
-                            <strong>条目创建时间：</strong>{$result.create_time}
-                            <br>
-                            <strong>条目更新时间：</strong>{$result.update_time}
-                            <br>
-                            <br>
-                            <a href="__MODULE__/index/getbyid?id={$result.id}" target="_blank">【点击查看图文详情】</a>
+                            <p>
+                                <strong>描述：</strong>{$result.info}
+                                <br><br>
+                                <strong>车辆丢失时间：</strong>{$result.lost_time}
+                                <br>
+                                <strong>条目创建时间：</strong>{$result.create_time}
+                                <br>
+                                <strong>条目更新时间：</strong>{$result.update_time}
+                                <br>
+                                <br>
+                                <a href="__MODULE__/index/getbyid?id={$result.id}" target="_blank">【点击查看图文详情】</a>
+                            </p>
                         </div>
                     </li>
                 </volist>
