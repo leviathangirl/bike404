@@ -18,9 +18,9 @@ class ListModel
                                     'status',
                                     'info',
                                     'image',
-                                    'lost_time',
-                                    'create_time',
-                                    'update_time',
+                                    'unix_timestamp(lost_time) as lost_time',
+                                    'unix_timestamp(create_time) as create_time',
+                                    'unix_timestamp(update_time) as update_time',
                                     );
 
         $this->detail_field = array('id',
@@ -36,10 +36,10 @@ class ListModel
                                     'user',
                                     'email',
                                     'contact',
-                                    'lost_time',
-                                    'create_time',
-                                    'update_time',
-);
+                                    'unix_timestamp(lost_time) as lost_time',
+                                    'unix_timestamp(create_time) as create_time',
+                                    'unix_timestamp(update_time) as update_time',
+                                    );
     }
 
     public function getall($filter = null)
@@ -72,8 +72,8 @@ class ListModel
         }
 
         $where = array('id' => $id);
-        $field = $this->field;
-        $result = M('list')->where($where)->find();
+        $field = $this->detail_field;
+        $result = M('list')->field($field)->where($where)->find();
 
         return $result;
     }

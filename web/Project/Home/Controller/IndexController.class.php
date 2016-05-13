@@ -10,6 +10,9 @@ class IndexController extends BaseController
     {
         $ListModel = D('List');
         $list = $ListModel->getall();
+        foreach ($list as $key => &$value) {
+            $this->unixtimestampToHumanreadable($value);
+        }
 
         $this->assign('result', $list);
 
@@ -33,6 +36,8 @@ class IndexController extends BaseController
             $imgUrlList = $this->generateImgUrl($result);
         }
 
+        $this->unixtimestampToHumanreadable($result);
+
         $this->assign('result', $result);
         $this->assign('imgUrlList', $imgUrlList);
 
@@ -45,5 +50,15 @@ class IndexController extends BaseController
         $imgUrlList = $Generator->generateImgUrl($result);
 
         return $imgUrlList;
+    }
+
+    private function unixtimestampToHumanreadable(&$value)
+    {
+        $data_format = 'YÄênÔÂdÈÕ';
+        $value['lost_time'] = date($data_format, $value['lost_time']);
+        $value['create_time'] = date($data_format, $value['create_time']);
+        $value['update_time'] = date($data_format, $value['update_time']);
+
+        return;
     }
 }
