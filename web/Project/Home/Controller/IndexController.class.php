@@ -54,7 +54,7 @@ class IndexController extends BaseController
 
     private function unixtimestampToHumanreadable(&$value)
     {
-        $data_format = 'YÄênÔÂdÈÕ';
+        $data_format = 'Yå¹´næœˆdæ—¥';
         $value['lost_time'] = date($data_format, $value['lost_time']);
         $value['create_time'] = date($data_format, $value['create_time']);
         $value['update_time'] = date($data_format, $value['update_time']);
