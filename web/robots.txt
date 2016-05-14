@@ -1,7 +1,6 @@
 User-agent: *
-Allow: /
-Allow: /sitemap.xml
-Allow: /index.php/Home/about
-Allow: /index.php/Home/
-Allow: /index.php/Home/index/getbyid*
-Disallow: *
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /Public/
+Disallow: /ThinkPHP/
+Disallow: /Project/
