@@ -1,6 +1,7 @@
 User-agent: *
-Disallow: /*.js$
-Disallow: /*.css$
-Disallow: /Public/
+Disallow: /Public/materialize/
+Disallow: /Public/js/jquery
 Disallow: /ThinkPHP/
 Disallow: /Project/
+Disallow: /index.php/Home/web
+Disallow: /index.php/Home/api

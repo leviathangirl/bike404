@@ -13,6 +13,8 @@ class ToolsController extends BaseController
 
     public function basic()
     {
+        $SITE_URL = C('SITE_URL');
+        $this->assign('SITE_URL', $SITE_URL);
         $this->display();
     }
 

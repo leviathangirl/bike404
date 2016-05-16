@@ -11,7 +11,7 @@ return array(
     'SITE_URL' => 'http://192.168.214.130/bike404/web/index.php/Home/',
     'IMG_PREFIX' => 'http://192.168.214.130/bike404/web/Public/temp/',
     //'IMGTHUMBNAIL_PREFIX'    => 'http://192.168.214.130/ImageThumbnail/index.php?img=',
-    'LASTMODIFIED_TIME' => 1463155200,
+    'LASTMODIFIED_TIME' => 1463361460,
 
     'URL_ROUTER_ON' => true,
     'URL_ROUTE_RULES' => array(

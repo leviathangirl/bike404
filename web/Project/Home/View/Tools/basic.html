@@ -12,92 +12,135 @@
     <body>
         <include file="Public/body"/>
         <include file="Public/navbar"/>
-        <div class="container ">
+        <script src="__PUBLIC__/js/tools/basic.js"></script>
 
-            <p>因本站仍在设计制作中，接口可能会有所变动。如果您需要调用这些接口，建议您向本站开发者发送邮件，这样一旦接口有变动，您将会受到接口变化细节的邮件通知。</p>
-            <p>目前本站提供 2 种 API 接口服务。</p>
-            <p>一般用户可以选择使用Web接口，将页面直接嵌入到您的网站之中。如果您觉得本站提供的Web效果不美观，或与您的网站画风不符，且您具有一定的网页制作能力的话，您可以使用Json接口。</p>
-            <h4>Web接口：</h4>
-            <h5>随机获取一条丢失车辆的信息：</h5>
-            <ul>
-                <li>
-                    <p>请求方式：GET</p>
-                </li>
-                <li>
-                    <p>请求地址：<code>http://192.168.214.130/bike404/web/index.php/Home/web/random</code>
-                    </p>
-                </li>
-                <li>
-                    <p>参数：无</p>
-                </li>
-                <li>
-                    <p>参考代码：</p>
-                    <blockquote>
-                        <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;iframe</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src=&quot;</span><span class="markup underline link http hyperlink"><span>http://192.168.214.130/bike404/web/index.php/Home/web/random</span></span><span>&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>frameborder=&quot;0&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&gt;</span></span></span></div></pre>
-                    </blockquote>
-                </li>
-            </ul>
-            <h5>获取指定丢失车辆的信息：</h5>
-            <ul>
-                <li>
-                    <p>请求方式：GET</p>
-                </li>
-                <li>
-                    <p>请求地址：<code>http://192.168.214.130/bike404/web/index.php/Home/web/getbyid?id={id}</code>
-                    </p>
-                </li>
-                <li>
-                    <p>参数：{id}指定条目的ID</p>
-                </li>
-                <li>
-                    <p>参考代码：</p>
-                    <blockquote>
-                        <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;iframe</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src=&quot;</span><span class="markup underline link http hyperlink"><span>http://192.168.214.130/bike404/web/index.php/Home/web/random</span></span><span>&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>frameborder=&quot;0&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&gt;</span></span></span></div></pre>
-                    </blockquote>
-                </li>
-            </ul>
-            <h4>JSON接口：</h4>
-            <p>所有中文都经由 JSON_UNESCAPED_UNICODE 编码。</p>
-            <h5>随机获取一条丢失车辆的信息：</h5>
-            <ul>
-                <li>
-                    <p>请求方式：GET</p>
-                </li>
-                <li>
-                    <p>请求地址：<code>http://192.168.214.130/bike404/web/index.php/Home/api/get</code>
-                    </p>
-                </li>
-                <li>
-                    <p>请求参数：无</p>
-                </li>
-                <li>
-                    <p>返回数据示例：</p>
-                    <blockquote>
-                        <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;error_code&quot;:&nbsp;0,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&quot;error_msg&quot;:&nbsp;&quot;success&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&quot;result&quot;:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;id&quot;:&nbsp;&quot;3&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;\u5bfb\u8f66&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;keyword&quot;:&nbsp;null,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;area&quot;:&nbsp;&quot;\u5317\u4eac&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;brand&quot;:&nbsp;&quot;\u7f8e\u5229\u8fbe&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;sub_brand&quot;:&nbsp;&quot;\u4ed8\u5229\u5a01&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;:&nbsp;&quot;\u6a59\u8272&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;:&nbsp;&quot;\u5c71\u5730\u8f66&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;alerted_police&quot;:&nbsp;&quot;0&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;status&quot;:&nbsp;&quot;0&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;info&quot;:&nbsp;&quot;\u672c\u4eba\u4e8e2016\u5e744\u670820\u65e5\u65e9\u4e0a\u7ea67:50\u65f6\u5c06\u81ea\u884c\u8f66\u505c\u5728\u56de\u9f99\u89c2\u4e1c\u5927\u8857\u5730\u94c1\u7ad9D\u53e3\u505c\u8f66\u68da\u5185\u3002\u665a\u4e0a19:20\u65f6\u53d1\u73b0\u88ab\u76d7\u3002\u56e0\u4e3a\u81ea\u5df1\u4e0d\u662f\u65e5\u672c\u4eba\uff0c\u88ab\u76d7\u8f66\u8f86\u4ef7\u503c\u4e0d\u8fc7\u4e07\u6240\u4ee5\u6ca1\u6709\u62a5\u8b66\u3002\u88ab\u76d7\u7684\u662f\u4e00\u8f86\u5c4e\u9ec4\u8272\u7f8e\u5229\u8fbe\u4ed8\u5229\u5a01500\uff0c\u6b64\u8f66\u578b\u5728\u5317\u4eac\u5e76\u4e0d\u591a\u89c1\u3002\u914d\u56fe\u662f\u53bb\u5e74\u62cd\u7684\uff0c\u4e22\u7684\u65f6\u5019\u6ca1\u6709\u8f66\u7b50\uff0c\u5e74\u521d\u66f4\u6362\u8fc7\u7259\u76d8\u62a4\u76d8\u548c\u652f\u6491\u67b6\u3002&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;image&quot;:&nbsp;[</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20140513_191311.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20151220_140416.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20160214_175001.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20160214_175010.jpg&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;user&quot;:&nbsp;&quot;admin&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;:&nbsp;&quot;admin@email.com&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;contact&quot;:&nbsp;&quot;15600000000&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;descrpition&quot;:&nbsp;null,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;uuid&quot;:&nbsp;&quot;00000000-0000-0000-0000-000000000000&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;lost_time&quot;:&nbsp;&quot;2016-04-20&nbsp;00:00:00&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;create_time&quot;:&nbsp;&quot;2016-04-25&nbsp;11:24:51&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;update_time&quot;:&nbsp;&quot;2016-04-25&nbsp;11:24:51&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre>
-                    </blockquote>
-                </li>
-            </ul>
-            <h6>返回数据说明：</h6>
-            <ul>
-                <li>error_code：返回数据状态码，为0表示正确，不为0表示出错</li>
-                <li>error_msg：返回数据状态信息</li>
-                <li>result：查询结果数据：</li>
-                <li>id：查询结果ID</li>
-                <li>area：丢失车辆的地区</li>
-                <li>brand：丢失车辆的品牌</li>
-                <li>sub_brand：丢失车辆的次级品牌</li>
-                <li>color：丢失车辆的颜色</li>
-                <li>type：丢失车辆的车型</li>
-                <li>alerted_police：报警状态。0为未报警，1为已报警</li>
-                <li>status：丢失状态。0为未找回，1为已由自己找回，2为已通过本站信息找回，3为通过公安找回，4为通过其他网站找回，5为自己购回</li>
-                <li>info：其他详细信息</li>
-                <li>lost_time：车辆丢失时间</li>
-                <li>create_time：条目创建时间</li>
-                <li>update_time：条目更新时间</li>
-                <li>URL：此条目的信息页面地址</li>
-            </ul>
+        <div class="container">
+            <div class="row">
 
+                <div class="col s12 m9 l10">
+                    <div id="api-info" class="section scrollspy">
+                        <h4>介绍：</h4>
+                        <p>因本站仍在设计制作中，接口可能会有所变动。如果您需要调用这些接口，建议您向本站开发者发送邮件，这样一旦接口有变动，您将会受到接口变化细节的邮件通知。</p>
+                        <p>目前本站提供 2 种 API 接口服务。</p>
+                        <p>一般用户可以选择使用Web接口，将页面直接嵌入到您的网站之中。如果您觉得本站提供的Web效果不美观，或与您的网站画风不符，且您具有一定的网页制作能力的话，您可以使用Json接口。</p>
+                    </div>
+                    <div id="web_interface" class="section scrollspy">
+                        <h4>Web接口：</h4>
+                        <p>Web接口可直接插入到您的网站中的 404 页面之中。</p>
+                    </div>
+                    <div id="web_interface_random" class="section scrollspy">
+                        <h5>- 随机获取一条丢失车辆的信息：</h5>
+                        <ul>
+                            <li>
+                                <p>请求方式：GET</p>
+                            </li>
+                            <li>
+                                <p>请求地址：<code>{$SITE_URL}web/random</code>
+                                </p>
+                            </li>
+                            <li>
+                                <p>参数：无</p>
+                            </li>
+                            <li>
+                                <p>参考代码：</p>
+                                <blockquote>
+                                    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;iframe</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src=&quot;</span><span class="markup underline link http hyperlink"><span>{$SITE_URL}web/random</span></span><span>&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>frameborder=&quot;0&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&gt;</span></span></span></div></pre>
+                                </blockquote>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="web_interface_getbyid" class="section scrollspy">
+                        <h5>- 获取指定丢失车辆的信息：</h5>
+                        <ul>
+                            <li>
+                                <p>请求方式：GET</p>
+                            </li>
+                            <li>
+                                <p>请求地址：<code>{$SITE_URL}web/getbyid?id={id}</code>
+                                </p>
+                            </li>
+                            <li>
+                                <p>参数：{id}指定条目的ID</p>
+                            </li>
+                            <li>
+                                <p>参考代码：</p>
+                                <blockquote>
+                                    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;iframe</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src=&quot;</span><span class="markup underline link http hyperlink"><span>{$SITE_URL}web/random</span></span><span>&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>frameborder=&quot;0&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&gt;</span></span></span></div></pre>
+                                </blockquote>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="json_interface" class="section scrollspy">
+                        <h4>JSON接口：</h4>
+                        <p>所有中文都经由 JSON_UNESCAPED_UNICODE 编码。</p>
+                    </div>
+                    <div id="json_interface_random" class="section scrollspy">
+                        <h5>- 随机获取一条丢失车辆的信息：</h5>
+                        <ul>
+                            <li>
+                                <p>请求方式：GET</p>
+                            </li>
+                            <li>
+                                <p>请求地址：<code>{$SITE_URL}api/get</code>
+                                </p>
+                            </li>
+                            <li>
+                                <p>请求参数：无</p>
+                            </li>
+                            <li>
+                                <p>返回数据示例：</p>
+                                <blockquote>
+                                    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;error_code&quot;:&nbsp;0,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&quot;error_msg&quot;:&nbsp;&quot;success&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&quot;result&quot;:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;id&quot;:&nbsp;&quot;3&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;\u5bfb\u8f66&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;keyword&quot;:&nbsp;null,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;area&quot;:&nbsp;&quot;\u5317\u4eac&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;brand&quot;:&nbsp;&quot;\u7f8e\u5229\u8fbe&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;sub_brand&quot;:&nbsp;&quot;\u4ed8\u5229\u5a01&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;:&nbsp;&quot;\u6a59\u8272&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;:&nbsp;&quot;\u5c71\u5730\u8f66&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;alerted_police&quot;:&nbsp;&quot;0&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;status&quot;:&nbsp;&quot;0&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;info&quot;:&nbsp;&quot;\u672c\u4eba\u4e8e2016\u5e744\u670820\u65e5\u65e9\u4e0a\u7ea67:50\u65f6\u5c06\u81ea\u884c\u8f66\u505c\u5728\u56de\u9f99\u89c2\u4e1c\u5927\u8857\u5730\u94c1\u7ad9D\u53e3\u505c\u8f66\u68da\u5185\u3002\u665a\u4e0a19:20\u65f6\u53d1\u73b0\u88ab\u76d7\u3002\u56e0\u4e3a\u81ea\u5df1\u4e0d\u662f\u65e5\u672c\u4eba\uff0c\u88ab\u76d7\u8f66\u8f86\u4ef7\u503c\u4e0d\u8fc7\u4e07\u6240\u4ee5\u6ca1\u6709\u62a5\u8b66\u3002\u88ab\u76d7\u7684\u662f\u4e00\u8f86\u5c4e\u9ec4\u8272\u7f8e\u5229\u8fbe\u4ed8\u5229\u5a01500\uff0c\u6b64\u8f66\u578b\u5728\u5317\u4eac\u5e76\u4e0d\u591a\u89c1\u3002\u914d\u56fe\u662f\u53bb\u5e74\u62cd\u7684\uff0c\u4e22\u7684\u65f6\u5019\u6ca1\u6709\u8f66\u7b50\uff0c\u5e74\u521d\u66f4\u6362\u8fc7\u7259\u76d8\u62a4\u76d8\u548c\u652f\u6491\u67b6\u3002&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;image&quot;:&nbsp;[</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20140513_191311.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20151220_140416.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20160214_175001.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20160214_175010.jpg&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;user&quot;:&nbsp;&quot;admin&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;:&nbsp;&quot;admin@email.com&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;contact&quot;:&nbsp;&quot;15600000000&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;descrpition&quot;:&nbsp;null,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;uuid&quot;:&nbsp;&quot;00000000-0000-0000-0000-000000000000&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;lost_time&quot;:&nbsp;&quot;2016-04-20&nbsp;00:00:00&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;create_time&quot;:&nbsp;&quot;2016-04-25&nbsp;11:24:51&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;update_time&quot;:&nbsp;&quot;2016-04-25&nbsp;11:24:51&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <h6>返回数据说明：</h6>
+                        <ul>
+                            <li>error_code：返回数据状态码，为0表示正确，不为0表示出错</li>
+                            <li>error_msg：返回数据状态信息</li>
+                            <li>result：查询结果数据：</li>
+                            <li>id：查询结果ID</li>
+                            <li>area：丢失车辆的地区</li>
+                            <li>brand：丢失车辆的品牌</li>
+                            <li>sub_brand：丢失车辆的次级品牌</li>
+                            <li>color：丢失车辆的颜色</li>
+                            <li>type：丢失车辆的车型</li>
+                            <li>alerted_police：报警状态。0为未报警，1为已报警</li>
+                            <li>status：丢失状态。0为未找回，1为已由自己找回，2为已通过本站信息找回，3为通过公安找回，4为通过其他网站找回，5为自己购回</li>
+                            <li>info：其他详细信息</li>
+                            <li>lost_time：车辆丢失时间</li>
+                            <li>create_time：条目创建时间</li>
+                            <li>update_time：条目更新时间</li>
+                            <li>URL：此条目的信息页面地址</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col m3 l2">
+                    <div class="row" id="tabs-wrapper">
+                        <ul class="section table-of-contents">
+                            <li>
+                                <a href="#api-info">介绍</a>
+                            </li>
+                            <li>
+                                <a href="#web_interface">Web接口</a>
+                            </li>
+                            <li>
+                                <a href="#web_interface_random">- 随机获取</a>
+                            </li>
+                            <li>
+                                <a href="#web_interface_getbyid">- 获取指定</a>
+                            </li>
+                            <li>
+                                <a href="#json_interface">JSON接口</a>
+                            </li>
+                            <li>
+                                <a href="#json_interface_random">- 随机获取</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
-
 </html>
