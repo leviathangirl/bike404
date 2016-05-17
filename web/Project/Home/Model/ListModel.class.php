@@ -33,9 +33,6 @@ class ListModel
                                     'status',
                                     'info',
                                     'image',
-                                    'user',
-                                    'email',
-                                    'contact',
                                     'unix_timestamp(lost_time) as lost_time',
                                     'unix_timestamp(create_time) as create_time',
                                     'unix_timestamp(update_time) as update_time',
@@ -89,7 +86,7 @@ class ListModel
             $where = array_merge($where, $whereplus);
         }
 
-        $field = $this->field;
+        $field = $this->detail_field;
         $result = M('list')->where($where)->field($field)->find();
 
         return $result;

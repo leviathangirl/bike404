@@ -27,6 +27,7 @@ class WebController extends BaseController
         if ($result['image']) {
             $imgUrlList = $this->generateImgUrl($result);
         }
+        $this->unixtimestampToHumanreadable($result);
 
         $this->assign('result', $result);
         $this->assign('imgUrlList', $imgUrlList);
@@ -46,6 +47,7 @@ class WebController extends BaseController
         if ($result['image']) {
             $imgUrlList = $this->generateImgUrl($result);
         }
+        $this->unixtimestampToHumanreadable($result);
 
         $this->assign('result', $result);
         $this->assign('imgUrlList', $imgUrlList);
@@ -60,9 +62,19 @@ class WebController extends BaseController
 
     private function generateImgUrl($result)
     {
-        $Generator=D('Generator');
+        $Generator = D('Generator');
         $imgUrlList = $Generator->generateImgUrl($result);
 
         return $imgUrlList;
+    }
+
+    private function unixtimestampToHumanreadable(&$value)
+    {
+        $data_format = 'Y年n月d日';
+        $value['lost_time'] = date($data_format, $value['lost_time']);
+        $value['create_time'] = date($data_format, $value['create_time']);
+        $value['update_time'] = date($data_format, $value['update_time']);
+
+        return;
     }
 }

@@ -25,6 +25,7 @@ class ApiController extends BaseController
         $result = $ListModel->getOneByRadnom();
         $this->mergeImgUrl($result);
 
+        $result['url'] = C('SITE_URL').'index/getbyid?id='.$result['id'];
         $this->returnSuccess(array('result' => $result));
     }
 
@@ -45,7 +46,7 @@ class ApiController extends BaseController
             $this->returnFailure('Query Failed, No such id', 1);
         }
         $this->mergeImgUrl($result);
-
+        $result['url'] = C('SITE_URL').'index/getbyid?id='.$result['id'];
         $this->returnSuccess(array('result' => $result));
     }
 

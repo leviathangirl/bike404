@@ -13,8 +13,6 @@ class ToolsController extends BaseController
 
     public function basic()
     {
-        $SITE_URL = C('SITE_URL');
-        $this->assign('SITE_URL', $SITE_URL);
         $this->display();
     }
 
@@ -69,12 +67,12 @@ class ToolsController extends BaseController
                     break;
                 case (2592000 <= $interval && $interval < 31536000):
                     $changefreq = 'monthly';
-                    $priority = 0.7;
+                    $priority = 0.6;
                     break;
 
                 case (31536000 <= $interval):
                     $changefreq = 'yearly';
-                    $priority = 0.5;
+                    $priority = 0.3;
                     break;
 
                 default:
@@ -87,6 +85,8 @@ class ToolsController extends BaseController
         }
 
         $urlmap[0] = array('loc' => C('SITE_URL'),'lastmod' => date(DATE_W3C, $lastestmod), 'changefreq' => $default_changefreq,'priority' => 1.0);
+
+        //echo nl2br(print_r($urlmap, true));
 
         $generated_on = date(DATE_W3C, time());
 
