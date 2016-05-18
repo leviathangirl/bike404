@@ -12,8 +12,8 @@ return array(
     'IMG_PREFIX' => 'http://192.168.214.130/bike404/web/Public/temp/',
     //'IMGTHUMBNAIL_PREFIX'    => 'http://192.168.214.130/ImageThumbnail/index.php?img=',
     'LASTMODIFIED_TIME' => 1463487016,
-    'BIKE404_VERSION' => 'v0.0.7-Pre_Alpha',
-    'META_KEYWORDS' => 'BIKE404,BIKE,404,BIKE404¹«Òæ,×ÔĞĞ³µ,±»µÁ,¹«Òæ,¶ªÊ§,µÁÇÔ,¿ªÔ´,NotFound',
+    'BIKE404_VERSION' => 'v0.0.8-Pre_Alpha',
+    'META_KEYWORDS' => 'BIKE404,BIKE,404,BIKE404å…¬ç›Š,è‡ªè¡Œè½¦,è¢«ç›—,å…¬ç›Š,ä¸¢å¤±,ç›—çªƒ,å¼€æº,NotFound',
 
     'URL_ROUTER_ON' => true,
     'URL_ROUTE_RULES' => array(
