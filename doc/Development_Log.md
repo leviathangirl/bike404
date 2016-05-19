@@ -1,7 +1,9 @@
 # bike404 开发日志
+
 最新日志写在最后面
 
 ## 归档
+
 我用了2天，每天只抽出一点点时间，就coding完成了这个网站的后端初始代码。但用了2个星期，也没有搞定前端代码。
 
 前端的代码我只了解一点jquery、ztree和highcharts，对css完全不懂。
@@ -11,4 +13,9 @@
 我自己也用js写过image slider with thumbnail插件，功能上倒是实现了，但是由于css样式文件完全搞不定，所以图片弄着弄着就开始错版错位，写了2天最后也放弃了，改用amaze ui的Gallery。说真心话amaze ui的文档我也是读的不明所以，他给出的Demo中，default（2列）和default（3列）在展示上到底有什么区别我折腾了很久也没看出什么区别。
 
 ## 2016-05-12
-前端已启用 amaze ui，原因之一是 amaze ui 的文档写的太模糊，原因之二是 amaze ui 的 css 污染太严重。。现在使用的是 [materialize](http://materializecss.com/) ，文档比较全，代码也比较简洁。
+
+前端已弃用 amaze ui，原因之一是 amaze ui 的文档写的太模糊，原因之二是 amaze ui 的 css 污染太严重。。现在使用的是 [materialize](http://materializecss.com/) ，文档比较全，代码也比较简洁。
+
+## 2016-05-19
+
+用了一周时间完成了多数已知问题的修复，代码也上传到 GitHub 了。感觉这周就可以进入 Alpha 阶段了。
