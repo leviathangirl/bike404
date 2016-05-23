@@ -33,6 +33,7 @@ class ListModel
                                     'status',
                                     'info',
                                     'image',
+                                    'user',
                                     'unix_timestamp(lost_time) as lost_time',
                                     'unix_timestamp(create_time) as create_time',
                                     'unix_timestamp(update_time) as update_time',
