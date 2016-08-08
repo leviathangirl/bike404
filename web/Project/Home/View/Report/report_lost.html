@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>报告丢失————My bike 404 not found</title>
+
+        <include file="Public/head"/>
+        <meta name="keywords" content="{$Think.config.META_KEYWORDS}">
+    </head>
+
+    <body>
+        <include file="Public/body"/>
+        <include file="Public/navbar"/>
+        <div class="container">
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                            <label for="first_name">丢失车辆的地区</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="last_name" type="text" class="validate">
+                            <label for="last_name">丢失车辆的品牌</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                            <label for="disabled">丢失车辆的颜色</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">丢失车辆的车型</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">报警状态</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <include file="Public/statistics"/>
+        </div>
+    </body>
+
+</html>

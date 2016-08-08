@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>报告丢失或线索————My bike 404 not found</title>
+
+        <include file="Public/head"/>
+        <meta name="keywords" content="{$Think.config.META_KEYWORDS}">
+    </head>
+
+    <body>
+        <include file="Public/body"/>
+        <include file="Public/navbar"/>
+        <div class="container">
+            <div class="row">
+                <div class="col s12" style="margin-top: 70px;">
+                    <a href="__MODULE__/report/lost">
+                        <div class="card blue-grey darken-1 col s4 offset-s1">
+                            <div class="card-content white-text">
+                                <span class="card-title">报告丢失</span>
+                                <div class="card-action">
+                                    <p>如果您的车辆丢失了，请点击此处</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="col s2">
+                        <p></p>
+                    </div>
+                    <a href="__MODULE__/report/clue">
+                        <div class="card blue-grey darken-1 col s4">
+                            <div class="card-content white-text">
+                                <span class="card-title">报告线索</span>
+                                <div class="card-action">
+                                    <p>如果您发现了丢失车辆的线索，请点击此处</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <include file="Public/statistics"/>
+        </div>
+    </body>
+
+</html>
