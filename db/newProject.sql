@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2016-05-23 02:06:48
+-- Generation Time: 2016-08-31 08:08:53
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.4.16
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `list` (
   `color` varchar(20) CHARACTER SET utf8 NOT NULL,
   `type` varchar(20) CHARACTER SET utf8 NOT NULL,
   `alerted_police` int(4) NOT NULL DEFAULT '0' COMMENT '是否已报警',
-  `status` int(4) NOT NULL DEFAULT '0' COMMENT '丢失状态：0未找回',
+  `status` int(4) NOT NULL DEFAULT '0' COMMENT 'status：丢失状态。 - 0为未找回 - 1为已由自己找回 - 2为已通过本站信息找回 - 3为通过公安找回 - 4为通过其他网站找回 - 5为自己购回',
   `info` text CHARACTER SET utf8,
   `image` text CHARACTER SET utf8,
   `user` varchar(50) CHARACTER SET utf8 NOT NULL COMMENT '用户的昵称（不保存用户的真实姓名）',

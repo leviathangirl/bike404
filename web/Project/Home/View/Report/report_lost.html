@@ -14,68 +14,121 @@
         <include file="Public/body"/>
         <include file="Public/navbar"/>
         <script type="text/javascript" src="__PUBLIC__/js/report.js"></script>
+        <br>
         <div class="container">
 
             <div class="row">
 
-                <form class="col s12" action="index.html" method="post">
+                <form class="col s12" action="/post_test.php" method="post" id="reportlostform">
                     <div class="row">
-                        <div class="input-field">
-                            <input placeholder="在此输入" id="area" type="text" class="validate">
-                            <label for="area">丢失车辆的地区</label>
+                        <div class="input-field col s7">
+                            <input name="area" placeholder="在此输入丢失车辆的区域" id="area" type="text" class="validate">
+                            <label for="area">丢失车辆的地区*</label>
                         </div>
-                        <div class="input-field">
-                            <input placeholder="在此输入" id="brand" type="text" class="validate">
-                            <label for="brand">丢失车辆的品牌</label>
+                        <div class="input-field col s7">
+                            <input name="brand" placeholder="在此输入丢失车辆的品牌" id="brand" type="text" class="validate">
+                            <label for="brand">丢失车辆的品牌*</label>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field">
-                            <input id="color" type="text" class="validate">
-                            <label for="color">丢失车辆的颜色</label>
+                        <div class="input-field col s7">
+                            <input name="color" placeholder="在此输入丢失车辆的颜色" id="color" type="text" class="validate">
+                            <label for="color">丢失车辆的颜色*</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field">
-                            <input id="type" type="password" class="validate">
-                            <label for="type">丢失车辆的车型</label>
+                        <div class="input-field col s7">
+                            <select name="type">
+                                <option value="" disabled selected>选择你的车型*</option>
+                                <option value="通勤车">通勤车</option>
+                                <option value="山地车">山地车</option>
+                                <option value="公路赛">公路赛</option>
+                                <option value="电动车">电动车</option>
+                                <option value="其他">其他（请在其他信息中描述）</option>
+                            </select>
+                            <label for="type">丢失车辆的车型*</label>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field">
-                            <input id="alerted_police" type="text" class="validate">
-                            <label for="alerted_police">报警状态</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field">
-                            <input id="status" type="text" class="validate">
-                            <label for="status">找回状态</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field">
-                            <input id="create_time" type="text" class="validate">
-                            <label for="create_time">丢失时间</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field">更新时间
-                            <input id="update_time" type="date" class="datepicker">
 
+                        <div class="input-field col s7">
+                            <p>报警状态*</p>
+                            <p>
+                                <input name="alerted_police" type="radio" id="alerted_police_0" value="0" checked/>
+                                <label for="alerted_police_0">未报警</label>
+
+                                <input name="alerted_police" type="radio" id="alerted_police_1" value="1"/>
+                                <label for="alerted_police_1">已报警</label>
+                            </p>
+                        </div>
+
+                        <div class="input-field col s7">
+                            <p>
+                                找回状态*
+                            </p>
+                            <p>
+                                <input name="status" type="radio" id="status_0" value="0" checked/>
+                                <label for="status_0">未找回</label>
+                            </p>
+                            <p>
+                                <input name="status" type="radio" id="status_1" value="1"/>
+                                <label for="status_1">已自己找回</label>
+                            </p>
+                            <p>
+                                <input name="status" type="radio" id="status_2" value="2"/>
+                                <label for="status_2">已通过本站信息找回</label>
+                            </p>
+                            <p>
+                                <input name="status" type="radio" id="status_3" value="3"/>
+                                <label for="status_3">已通过公安找回</label>
+                            </p>
+                            <p>
+                                <input name="status" type="radio" id="status_4" value="4"/>
+                                <label for="status_4">已通过其他网站找回
+                                </label>
+                            </p>
+                            <p>
+                                <input name="status" type="radio" id="status_5" value="5"/>
+                                <label for="status_5">已自己购回</label>
+                            </p>
 
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field">
-                            <textarea id="info" class="materialize-textarea"></textarea>
+                        <div class="input-field col s7">
+                            <input name="lost_time" id="lost_time" type="date" class="datepicker">
+                            <label for="lost_time">丢失时间</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                            <textarea name="info" id="info" class="materialize-textarea" placeholder="在此输入"></textarea>
                             <label for="info">其他信息</label>
                         </div>
-
                     </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <label for="update_time">更新时间</label>
+                            <input name="update_time" id="update_time" type="date" class="datepicker">
+                        </div>
+                    </div>
+                    <input type="submit" value="提交">
+                </form>
+
+            </div>
+            <div class="row">
+                <form action="#">
+                  <div class="file-field input-field">
+                    <div class="btn">
+                      <span>File</span>
+                      <input type="file" multiple id="files">
+                    </div>
+
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    </div>
+
+                  </div>
+                  <input type="button" value="提交" id="uploadimg">
                 </form>
             </div>
-
             <include file="Public/statistics"/>
         </div>
     </body>
