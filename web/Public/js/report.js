@@ -9,14 +9,21 @@ $(document).ready(function() {
     $('select').material_select();
     $('#uploadimg').on('click', function() {
         var files = document.getElementById('files').files;
-        upload(files);
+        console.log(files);
+        if (files.length == 0) {
+            console.log('没有文件');
+            return ;
+        }
+        $('#img-info-id').prop('value', '上传中');
+        ifDisplayImgUploaderForm(false);
+        uploadImgAjax(files);
     });
     $('#test').on('click', function() {
         postReportLostData(1);
     });
 });
 
-function upload(files) {
+function uploadImgAjax(files) {
     var formData = new FormData();
     formData.append('posttest', 'post files');
 
@@ -40,9 +47,25 @@ function upload(files) {
             console.log(xhr.responseText);
             timestamp = xhr.responseText;
             postInfo(timestamp);
+            return ;
         } else {
+            $('#img-info-id').prop('value', '上传失败，请重新上传');
+            ifDisplayImgUploaderForm(true);
         }
     };
+}
+
+function postInfo(timestamp) {
+    $('#img-info-id').prop('value', timestamp);
+    ifDisplayImgUploaderForm(false);
+}
+
+function ifDisplayImgUploaderForm(ifDisplay) {
+    if (ifDisplay) {
+        $('#img-uploader-form').show();
+    } else {
+        $('#img-uploader-form').hide();
+    }
 }
 
 function updateProgress(event) {
@@ -59,6 +82,11 @@ function postReportLostData(timestamp) {
     }
     reportlostdata = new FormData(document.getElementById('reportlostform'));
     reportlostdata.append('timestamp', timestamp);
+
+    var img_info_id;
+    img_info_id = $('#img-info-id').prop('value');
+    reportlostdata.append('timestamp', timestamp);
+    reportlostdata.append('img_info_id', img_info_id);
     console.log(reportlostdata);
 
     $.ajax({

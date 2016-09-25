@@ -109,24 +109,30 @@
                             <input name="update_time" id="update_time" type="date" class="datepicker">
                         </div>
                     </div>
-                    <input type="submit" value="提交">
+
+                    <div class="row">
+                        <div class="input-field">
+                            <label for="img-info-id">图片信息</label>
+                            <input name="img-info-id" placeholder="图片ID" id="img-info-id" type="text" class="validate" disabled>
+                        </div>
+                    </div>
                 </form>
 
             </div>
             <div class="row">
-                <form action="#">
-                  <div class="file-field input-field">
-                    <div class="btn">
-                      <span>File</span>
-                      <input type="file" multiple id="files">
-                    </div>
+                <form id="img-uploader-form" action="#">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" multiple id="files">
+                        </div>
 
-                    <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text" placeholder="Upload one or more files">
-                    </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                        </div>
 
-                  </div>
-                  <input type="button" value="提交" id="uploadimg">
+                    </div>
+                    <input type="button" value="提交" id="uploadimg">
                 </form>
             </div>
             <input type="button" value="test" id="test">
