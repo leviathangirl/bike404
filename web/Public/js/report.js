@@ -39,7 +39,7 @@ function uploadImgAjax(files) {
     var xhr = new XMLHttpRequest();
     xhr.onprogress = updateProgress;
     xhr.upload.onprogress = updateProgress;
-    xhr.open('POST', '/post_test_ajax.php');
+    xhr.open('POST', '/index.php/Home/report/postReportLostImage');
 
     xhr.send(formData);
     xhr.onreadystatechange = function() {
@@ -69,10 +69,10 @@ function ifDisplayImgUploaderForm(ifDisplay) {
 }
 
 function updateProgress(event) {
-　　　　if (event.lengthComputable) {
+    if (event.lengthComputable) {
         var percentComplete = event.loaded / event.total;
         console.log(percentComplete);
-　　　　}
+    }
 }
 
 function postReportLostData(timestamp) {
@@ -91,7 +91,7 @@ function postReportLostData(timestamp) {
 
     $.ajax({
         type: 'POST',
-        url: '/post_test.php',
+        url: '/index.php/Home/report/postReportLostData',
         data: reportlostdata,
         processData: false,  // 告诉jQuery不要去处理发送的数据
         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头

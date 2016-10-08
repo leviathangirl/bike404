@@ -15,7 +15,7 @@ return array(
     'BIKE404_VERSION' => '0.1.6-Alpha',
     'META_KEYWORDS' => 'BIKE404,BIKE,404,BIKE404公益,自行车,被盗,公益,丢失,盗窃,开源,NotFound',
 
-    'POST_TMP' => '/tmp/',
+    'POST_TMP' => '/var/www/bike404/web/tmp_img/',
     'URL_ROUTER_ON' => true,
     'URL_ROUTE_RULES' => array(
         array('sitemap.xml', 'tools/sitemap', null, array('method' => 'get')),
