@@ -48,22 +48,4 @@ class ReportDataModel
         return $result;
     }
 
-    private function generateWhereByFilter($filter)
-    {
-        $where_plus = array();
-        if (array_key_exists('area', $filter)) {
-            $where_plus['area'] = array('like', '%'.$filter['area'].'%');
-        }
-        if (array_key_exists('brand', $filter)) {
-            $where_plus['brand'] = array('like', '%'.$filter['brand'].'%');
-        }
-        if (array_key_exists('color', $filter)) {
-            $where_plus['color'] = array('like', '%'.$filter['color'].'%');
-        }
-        if (array_key_exists('type', $filter)) {
-            $where_plus['type'] = array('like', '%'.$filter['type'].'%');
-        }
-
-        return $where_plus;
-    }
 }
