@@ -98,7 +98,9 @@ function postReportLostData(timestamp) {
         dataType: 'json',
         async: false,
         success: function(msg) {
+            Materialize.toast('提交成功!', 4000);
             console.log(msg);
+            window.location.href = 'http://192.168.1.102:8092/bike404/web/index.php/Home/report/reportSuccess';
         },
         error: function() {
             console.log(msg);
