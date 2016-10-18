@@ -14,62 +14,7 @@
         <include file="Public/navbar"/>
         <div class="container">
 
-            <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header active">
-                        <i class="mdi-image-filter-drama"></i>
-                        <strong>{$result.id}:{$result.area}:{$result.brand}{$result.sub_brand}:{$result.color}:{$result.type}:
-                            <if condition="($result.alerted_police eq 0) ">未报警
-                                <elseif condition="($result.alerted_police eq 1)"/>已报警
-                            </if>
-                            :
-                            <if condition="($result.status eq 0) ">未找回
-                                <elseif condition="($result.status eq 1)"/>已自己找回
-                                <elseif condition="($result.status eq 2)"/>已通过本网站找回
-                                <elseif condition="($result.status eq 3)"/>已通过公安找回
-                                <elseif condition="($result.status eq 4)"/>已通过其他网站找回
-                                <elseif condition="($result.status eq 5)"/>已购回找回
-                            </if>
-                        </strong>
-                    </div>
-                    <div class="collapsible-body">
-                        <p>
-                            <strong>失主昵称：</strong>{$result.user}
-                            <br>
-                            <strong>丢失车辆的地区：</strong>{$result.area}
-                            <br>
-                            <strong>丢失车辆的品牌：</strong>{$result.brand}{$result.sub_brand}
-                            <br>
-                            <strong>丢失车辆的颜色：</strong>{$result.color}
-                            <br>
-                            <strong>丢失车辆的车型：</strong>{$result.type}
-                            <br>
-                            <strong>报警状态：</strong>
-                            <if condition="($result.alerted_police eq 0) ">未报警
-                                <elseif condition="($result.alerted_police eq 1)"/>已报警
-                            </if>
-                            <br>
-                            <strong>找回状态：</strong>
-                            <if condition="($result.status eq 0) ">未找回
-                                <elseif condition="($result.status eq 1)"/>已自己找回
-                                <elseif condition="($result.status eq 2)"/>已通过本网站找回
-                                <elseif condition="($result.status eq 3)"/>已通过公安找回
-                                <elseif condition="($result.status eq 4)"/>已通过其他网站找回
-                                <elseif condition="($result.status eq 5)"/>已购回找回
-                            </if>
-                            <br>
-                            <strong>其他信息：</strong>{$result.info}
-                            <br>
-                            <br>
-                            <strong>车辆丢失时间：</strong>{$result.lost_time}
-                            <br>
-                            <strong>条目创建时间：</strong>{$result.create_time}
-                            <br>
-                            <strong>条目更新时间：</strong>{$result.update_time}
-                        </p>
-                    </div>
-                </li>
-            </ul>
+            <include file="Public/lost_information"/>
 
             <strong>丢失车辆的照片：</strong>
 

@@ -3,7 +3,7 @@ var timestamp;
 $(document).ready(function() {
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
+        selectYears: 15, // Creates a dropdown of 15 years to control year
     });
 
     $('select').material_select();
@@ -81,12 +81,17 @@ function postReportLostData(timestamp) {
         return false;
     }
     reportlostdata = new FormData(document.getElementById('reportlostform'));
-    reportlostdata.append('timestamp', timestamp);
 
     var img_info_id;
     img_info_id = $('#img-info-id').prop('value');
     reportlostdata.append('timestamp', timestamp);
     reportlostdata.append('img_info_id', img_info_id);
+
+    var $input_get__select = $('#lost_time_pickadate').pickadate();
+    var picker_get__select = $input_get__select.pickadate('picker');
+    var lost_time = picker_get__select.get('select', 'yyyy/mm/dd');
+    reportlostdata.append('lost_time', lost_time);
+
     console.log(reportlostdata);
 
     $.ajax({

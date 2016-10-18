@@ -22,6 +22,10 @@
                 <form class="col s12" action="/post_test.php" method="post" id="reportlostform">
                     <div class="row">
                         <div class="input-field col s7">
+                            <input name="user" placeholder="在此输入您的昵称，请避免使用真实姓名" id="user" type="text" class="validate">
+                            <label for="user">失主昵称*</label>
+                        </div>
+                        <div class="input-field col s7">
                             <input name="area" placeholder="在此输入丢失车辆的区域" id="area" type="text" class="validate">
                             <label for="area">丢失车辆的地区*</label>
                         </div>
@@ -92,7 +96,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                            <input name="lost_time" id="lost_time" type="date" class="datepicker">
+                            <input name="lost_time_pickadate" id="lost_time_pickadate" type="date" class="datepicker">
                             <label for="lost_time">丢失时间</label>
                         </div>
                     </div>
@@ -104,15 +108,12 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                            <input name="email" id="email" type="text" class="validate">
-                            <label for="info">您的邮箱</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field">
-                            <label for="update_time">更新时间</label>
-                            <input name="update_time" id="update_time" type="date" class="datepicker">
+                            <p>
+                                本站不会对您的邮箱地址加密保存。但同样承诺绝不会故意泄露您的邮箱地址<br>
+                                如果对本站安全性存有疑虑，使用 <a href="http://somanyad.com/" target="_blank">somanyad.com</a> 提供的垃圾邮件过滤服务
+                            </p>
+                            <input name="email" id="email" type="text" class="validate" placeholder="在此输入您的邮箱">
+                            <label for="email">您的邮箱</label>
                         </div>
                     </div>
 

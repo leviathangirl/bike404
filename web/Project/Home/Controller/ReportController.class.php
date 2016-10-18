@@ -24,6 +24,19 @@ class ReportController extends Controller
 
     public function reportSuccess()
     {
+        $id = I('id');
+        $ReportDataModel = D('ReportData');
+        $result = $ReportDataModel->getbyid($id);
+        if (!$result) {
+            echo 'error';
+            exit();
+        }
+        //$json = json_encode($result, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
+        //file_put_contents('/tmp/tmp.log', 'Call ReportController reportSuccess() $json'.":\n".print_r($json, true)."\n\n", FILE_APPEND);
+        //$json = nl2br($json);
+        //$this->assign('json', $json);
+
+        $this->assign('result', $result);
         $this->display('report_success');
     }
 
@@ -59,7 +72,8 @@ class ReportController extends Controller
         exit();
     }
 
-    public function postReportLostData() {
+    public function postReportLostData()
+    {
         $post = print_r($_POST, true);
         //header('Content-Type: text/html; charset=UTF-8');
         $json = json_encode($_POST, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
