@@ -28,7 +28,7 @@ class ReportController extends Controller
         $ReportDataModel = D('ReportData');
         $result = $ReportDataModel->getbyid($id);
         if (!$result) {
-            echo 'error';
+            $this->error('您请求的地址有误，3秒后跳转至主页', C('SITE_URL'));
             exit();
         }
         //$json = json_encode($result, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);

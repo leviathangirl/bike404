@@ -7,12 +7,14 @@
 
         <include file="Public/head"/>
         <meta name="keywords" content="{$Think.config.META_KEYWORDS}">
+        <link href="__PUBLIC__/lib/bootstrap-datepicker_1.6.4/bootstrap-datepicker.standalone.css" rel="stylesheet">
 
     </head>
 
     <body>
         <include file="Public/body"/>
         <include file="Public/navbar"/>
+        <script type="text/javascript" src="__PUBLIC__/lib/bootstrap-datepicker_1.6.4/bootstrap-datepicker.js"></script>
         <script type="text/javascript" src="__PUBLIC__/js/report.js"></script>
         <br>
         <div class="container">
@@ -96,13 +98,13 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                            <input name="lost_time_pickadate" id="lost_time_pickadate" type="date" class="datepicker">
-                            <label for="lost_time">丢失时间</label>
+                            <input name="lost_time_pickadate" id="lost_time_pickadate" type="text" class="form-control">
+                            <label for="lost_time_pickadate">丢失时间</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                            <textarea name="info" id="info" class="materialize-textarea" placeholder="在此输入"></textarea>
+                            <textarea name="info" id="info" class="materialize-textarea" placeholder="在此输入其他相关信息，比如车身细节、已知线索"></textarea>
                             <label for="info">其他信息</label>
                         </div>
                     </div>
