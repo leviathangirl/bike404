@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2016-10-18 06:48:35
+-- Generation Time: 2016-10-25 07:57:55
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.4.16
 
@@ -67,12 +67,12 @@ CREATE TABLE IF NOT EXISTS `report_lost` (
   `user` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '用户的昵称（不保存用户的真实姓名）',
   `email` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
   `contact` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `descrpition` text CHARACTER SET utf8mb4,
   `uuid` varchar(36) CHARACTER SET utf8mb4 DEFAULT '00000000-0000-0000-0000-000000000000',
   `lost_time` timestamp NULL DEFAULT NULL COMMENT '丢车时间',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
-  `img_info_id` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `img_info_id` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COMMENT '后台备注'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

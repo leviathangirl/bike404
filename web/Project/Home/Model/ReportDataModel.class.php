@@ -10,7 +10,6 @@ class ReportDataModel
 
     public function saveReportData($data)
     {
-
         file_put_contents('/tmp/tmp.log', 'Call ReportDataModel saveReportData() pre_$data info'.":\n".print_r($data, true)."\n\n", FILE_APPEND);
         //$data['lost_time'] = '2012-09-05 00:00:00';
         //$data['update_time'] = '2016-09-05 00:00:00';
@@ -21,6 +20,9 @@ class ReportDataModel
 
         //$sql = $ReportLost->fetchSql(true)->add($data);
         //file_put_contents('/tmp/tmp.log', 'Call ReportDataModel saveReportData() $sql'.":\n".print_r($sql, true)."\n\n", FILE_APPEND);
+
+        $McryptModel = D('Mcrypt');
+        $data['email'] = $McryptModel->encrypt($data['email']);
 
         $result = $ReportLost->add($data);
         file_put_contents('/tmp/tmp.log', 'Call ReportDataModel saveReportData() $result'.":\n".print_r($result, true)."\n\n", FILE_APPEND);
@@ -37,9 +39,9 @@ class ReportDataModel
         $where = array('id' => $id);
         $result = $ReportLost->where($where)->find();
         unset($result['update_time']);
+
         file_put_contents('/tmp/tmp.log', 'Call ReportDataModel getbyid() $result'.":\n".print_r($result, true)."\n\n", FILE_APPEND);
 
         return $result;
     }
-
 }

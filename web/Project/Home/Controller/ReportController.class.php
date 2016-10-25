@@ -31,10 +31,6 @@ class ReportController extends Controller
             $this->error('您请求的地址有误，3秒后跳转至主页', C('SITE_URL'));
             exit();
         }
-        //$json = json_encode($result, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
-        //file_put_contents('/tmp/tmp.log', 'Call ReportController reportSuccess() $json'.":\n".print_r($json, true)."\n\n", FILE_APPEND);
-        //$json = nl2br($json);
-        //$this->assign('json', $json);
 
         $this->assign('result', $result);
         $this->display('report_success');
@@ -74,12 +70,13 @@ class ReportController extends Controller
 
     public function postReportLostData()
     {
-        $post = print_r($_POST, true);
-        //header('Content-Type: text/html; charset=UTF-8');
-        $json = json_encode($_POST, JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
         $data = $_POST;
         file_put_contents('/tmp/tmp.log', 'Call ReportController postReportLostData() $data'.":\n".print_r($data, true)."\n\n", FILE_APPEND);
-
+        $datacheck = $this->postDataCheck();
+        if (!$datacheck) {
+            header('HTTP/1.1 400 Bad Request');
+            exit();
+        }
         $ReportDataModel = D('ReportData');
         $result = $ReportDataModel->saveReportData($data);
         echo $result;
@@ -102,5 +99,18 @@ class ReportController extends Controller
         }
 
         return $file_ary;
+    }
+
+    private function postDataCheck($data)
+    {
+        $invalid = false;
+        $keys = array_keys($data);
+        $check_keys = array('user','area','brand','color','alerted_police','status','lost_time_pickadate','info','email','timestamp','img_info_id');
+        foreach ($check_keys as $key) {
+            if (!in_array($key, $keys)) {
+                $invalid = true;
+            }
+        }
+        return $invalid;
     }
 }

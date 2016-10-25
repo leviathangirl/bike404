@@ -15,6 +15,7 @@
         <include file="Public/body"/>
         <include file="Public/navbar"/>
         <script type="text/javascript" src="__PUBLIC__/lib/bootstrap-datepicker_1.6.4/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/lib/bootstrap-datepicker_1.6.4/bootstrap-datepicker.zh-CN.min.js "></script>
         <script type="text/javascript" src="__PUBLIC__/js/report.js"></script>
         <br>
         <div class="container">
@@ -25,36 +26,43 @@
                     <div class="row">
                         <div class="input-field col s7">
                             <input name="user" placeholder="在此输入您的昵称，请避免使用真实姓名" id="user" type="text" class="validate">
-                            <label for="user">失主昵称*</label>
+                            <label for="user">失主昵称<span style="color:red">*</span>
+                            </label>
                         </div>
                         <div class="input-field col s7">
                             <input name="area" placeholder="在此输入丢失车辆的区域" id="area" type="text" class="validate">
-                            <label for="area">丢失车辆的地区*</label>
+                            <label for="area">丢失车辆的地区<span style="color:red">*</span>
+                            </label>
                         </div>
                         <div class="input-field col s7">
                             <input name="brand" placeholder="在此输入丢失车辆的品牌" id="brand" type="text" class="validate">
-                            <label for="brand">丢失车辆的品牌*</label>
+                            <label for="brand">丢失车辆的品牌<span style="color:red">*</span>
+                            </label>
                         </div>
                         <div class="input-field col s7">
                             <input name="color" placeholder="在此输入丢失车辆的颜色" id="color" type="text" class="validate">
-                            <label for="color">丢失车辆的颜色*</label>
+                            <label for="color">丢失车辆的颜色<span style="color:red">*</span>
+                            </label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                            <select name="type">
-                                <option value="" disabled selected>选择你的车型*</option>
+                            <select name="type" id="type">
+                                <option value="" disabled selected>选择你的车型<span style="color:red">*</span>
+                                </option>
                                 <option value="通勤车">通勤车</option>
                                 <option value="山地车">山地车</option>
                                 <option value="公路赛">公路赛</option>
                                 <option value="电动车">电动车</option>
                                 <option value="其他">其他（请在其他信息中描述）</option>
                             </select>
-                            <label for="type">丢失车辆的车型*</label>
+                            <label for="type">丢失车辆的车型<span style="color:red">*</span>
+                            </label>
                         </div>
 
                         <div class="input-field col s7">
-                            <p>报警状态*</p>
+                            <p>报警状态<span style="color:red">*</span>
+                            </p>
                             <p>
                                 <input name="alerted_police" type="radio" id="alerted_police_0" value="0" checked/>
                                 <label for="alerted_police_0">未报警</label>
@@ -66,7 +74,7 @@
 
                         <div class="input-field col s7">
                             <p>
-                                找回状态*
+                                找回状态<span style="color:red">*</span>
                             </p>
                             <p>
                                 <input name="status" type="radio" id="status_0" value="0" checked/>
@@ -99,52 +107,69 @@
                     <div class="row">
                         <div class="input-field col s7">
                             <input name="lost_time_pickadate" id="lost_time_pickadate" type="text" class="form-control">
-                            <label for="lost_time_pickadate">丢失时间</label>
+                            <label for="lost_time_pickadate">丢失时间<span style="color:red">*</span>
+                            </label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
                             <textarea name="info" id="info" class="materialize-textarea" placeholder="在此输入其他相关信息，比如车身细节、已知线索"></textarea>
-                            <label for="info">其他信息</label>
+                            <label for="info">其他信息<span style="color:red">*</span>
+                            </label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
                             <p>
-                                本站不会对您的邮箱地址加密保存。但同样承诺绝不会故意泄露您的邮箱地址<br>
-                                如果对本站安全性存有疑虑，使用 <a href="http://somanyad.com/" target="_blank">somanyad.com</a> 提供的垃圾邮件过滤服务
+                                本站会对您的邮箱地址使用加密保存。<br>
+                                如果对本站安全性存有疑虑，使用
+                                <a href="http://somanyad.com/" target="_blank">somanyad.com</a>
+                                提供的垃圾邮件过滤服务
                             </p>
                             <input name="email" id="email" type="text" class="validate" placeholder="在此输入您的邮箱">
-                            <label for="email">您的邮箱</label>
+                            <label for="email">您的邮箱<span style="color:red">*</span>
+                            </label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field">
                             <label for="img-info-id">图片信息</label>
-                            <input name="img-info-id" placeholder="图片ID" id="img-info-id" type="text" class="validate" disabled>
+                            <input name="img-info-id" placeholder="请上传您的车辆相关的照片，提供更多的线索" id="img-info-id" type="text" class="validate" disabled>
                         </div>
                     </div>
                 </form>
 
             </div>
             <div class="row">
-                <form id="img-uploader-form" action="#">
+
+                <div id="img-uploader-form">
                     <div class="file-field input-field">
                         <div class="btn">
-                            <span>File</span>
+                            <span>选择图片</span>
                             <input type="file" multiple id="files" accept="image/jpg,image/jpeg,image/png">
                         </div>
 
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            <input class="file-path validate" type="text" placeholder="请一次性选择全部您所需要的图片，善用Ctrl键进行多选">
+                        </div>
+                        <div>
+                            <button class="btn waves-effect waves-purple" id="uploadimg">上传图片
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
 
                     </div>
-                    <input type="button" value="提交" id="uploadimg">
-                </form>
+
+                </div>
+
             </div>
-            <input type="button" value="test" id="test">
+            <div class="right-align">
+                <button class="btn waves-effect waves-purple" style="margin-bottom: 20px;" id="submit-info">提交您的信息
+                    <i class="material-icons right">done</i>
+                </button>
+            </div>
+
             <include file="Public/statistics"/>
         </div>
     </body>

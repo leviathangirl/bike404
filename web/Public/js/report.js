@@ -10,23 +10,29 @@ $(document).ready(function() {
     });
 
     $('select').material_select();
-    $('#uploadimg').on('click', function() {
-        var files = document.getElementById('files').files;
-        console.log(files);
-        if (files.length == 0) {
-            console.log('没有文件');
-            return ;
-        }
-        $('#img-info-id').prop('value', '上传中');
-        ifDisplayImgUploaderForm(false);
-        uploadImgAjax(files);
-    });
-    $('#test').on('click', function() {
+
+    $('#uploadimg').on('click', uploadimgBtnOnClick);
+
+    $('#submit-info').on('click', function() {
         postReportLostData(1);
     });
 });
 
+function uploadimgBtnOnClick(event) {
+    var files = document.getElementById('files').files;
+    if (files.length == 0) {
+        Materialize.toast('您没有选择文件', 4000);
+        return ;
+    }
+    $('#img-info-id').prop('value', '上传中...');
+    uploadImgAjax(files);
+
+}
+
 function uploadImgAjax(files) {
+    $('#uploadimg').off('click');
+    $('#uploadimg').addClass('disabled');
+
     var formData = new FormData();
     formData.append('posttest', 'post files');
 
@@ -46,13 +52,16 @@ function uploadImgAjax(files) {
 
     xhr.send(formData);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+        if (xhr.status == 200) {
             timestamp = xhr.responseText;
             postInfo(timestamp);
-            return ;
+            ifDisplayImgUploaderForm(false);
         } else {
+            Materialize.toast('上传失败，请重新上传', 4000);
             $('#img-info-id').prop('value', '上传失败，请重新上传');
+
+            $('#uploadimg').on('click', uploadimgBtnOnClick);
+            $('#uploadimg').removeClass('disabled');
             ifDisplayImgUploaderForm(true);
         }
     };
@@ -60,7 +69,6 @@ function uploadImgAjax(files) {
 
 function postInfo(timestamp) {
     $('#img-info-id').prop('value', timestamp);
-    ifDisplayImgUploaderForm(false);
 }
 
 function ifDisplayImgUploaderForm(ifDisplay) {
@@ -75,6 +83,8 @@ function updateProgress(event) {
     if (event.lengthComputable) {
         var percentComplete = event.loaded / event.total;
         console.log(percentComplete);
+        var percentCompleteStr = '上传中...' + (percentComplete * 100).toFixed(2) + '%';
+        $('#img-info-id').prop('value', percentCompleteStr);
     }
 }
 
@@ -90,12 +100,17 @@ function postReportLostData(timestamp) {
     reportlostdata.append('timestamp', timestamp);
     reportlostdata.append('img_info_id', img_info_id);
 
+    /*
     var $input_get__select = $('#lost_time_pickadate').pickadate();
     var picker_get__select = $input_get__select.pickadate('picker');
     var lost_time = picker_get__select.get('select', 'yyyy/mm/dd');
     reportlostdata.append('lost_time', lost_time);
-
+    */
     console.log(reportlostdata);
+    var datacheck = postDataCheck();
+    if (!datacheck) {
+        Materialize.toast('您提交的信息缺少部分字段！请您填写所有带*的字段', 4000);
+    }
 
     $.ajax({
         type: 'POST',
@@ -114,4 +129,13 @@ function postReportLostData(timestamp) {
             console.log(msg);
         }
     });
+}
+
+function postDataCheck() {
+    x = !($('#user').val()) || !($('#area').val()) || !($('#brand').val()) || !($('#color').val()) || !($('#type').val()) || !($('#lost_time_pickadate').val()) || !($('#info').val()) || !($('#email').val());
+    console.log(x);
+    if (x) {
+        return false;
+    }
+    return true;
 }
