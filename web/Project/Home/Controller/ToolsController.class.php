@@ -33,9 +33,11 @@ class ToolsController extends BaseController
         $lastestmod = $default_lastmod;
 
         $urlmap = array();
-        $urlmap[0] = array('loc' => C('SITE_URL'),'lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 1.0);
-        $urlmap[1] = array('loc' => C('SITE_URL').'about','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
-        $urlmap[2] = array('loc' => C('SITE_URL').'tools/basic','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL'),'lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 1.0);
+        $urlmap[] = array('loc' => C('SITE_URL').'about','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL').'tools/basic','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL').'report/lost','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL').'report/clue','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
 
         $ListModel = D('List');
         $list = $ListModel->getall();
