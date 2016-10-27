@@ -106,7 +106,7 @@ function postReportLostData(timestamp) {
         async: false,
         success: function(msg) {
             Materialize.toast('提交成功!', 4000);
-            window.location.href = 'http://192.168.1.102:8092/bike404/web/index.php/Home/report/reportSuccess';
+            window.location.href = window.location.protocol + '//' + window.location.hostname + '/index.php/Home/report/reportSuccess?id=' + msg;
         },
         error: function() {
             console.log(msg);
