@@ -35,16 +35,9 @@ function uploadImgAjax(files) {
 
     var formData = new FormData();
     formData.append('posttest', 'post files');
-
-    console.log(files);
-    console.log(files.length);
     for (var i = 0; i < files.length; i++) {
-        console.log(files[i]);
         formData.append('files[]', files[i]);
     }
-
-    console.log(formData);
-
     var xhr = new XMLHttpRequest();
     xhr.onprogress = updateProgress;
     xhr.upload.onprogress = updateProgress;
@@ -82,7 +75,6 @@ function ifDisplayImgUploaderForm(ifDisplay) {
 function updateProgress(event) {
     if (event.lengthComputable) {
         var percentComplete = event.loaded / event.total;
-        console.log(percentComplete);
         var percentCompleteStr = '上传中...' + (percentComplete * 100).toFixed(2) + '%';
         $('#img-info-id').prop('value', percentCompleteStr);
     }
@@ -90,7 +82,6 @@ function updateProgress(event) {
 
 function postReportLostData(timestamp) {
     if (!timestamp) {
-        console.log('timestamp is false.');
         return false;
     }
     reportlostdata = new FormData(document.getElementById('reportlostform'));
@@ -100,13 +91,6 @@ function postReportLostData(timestamp) {
     reportlostdata.append('timestamp', timestamp);
     reportlostdata.append('img_info_id', img_info_id);
 
-    /*
-    var $input_get__select = $('#lost_time_pickadate').pickadate();
-    var picker_get__select = $input_get__select.pickadate('picker');
-    var lost_time = picker_get__select.get('select', 'yyyy/mm/dd');
-    reportlostdata.append('lost_time', lost_time);
-    */
-    console.log(reportlostdata);
     var datacheck = postDataCheck();
     if (!datacheck) {
         Materialize.toast('您提交的信息缺少部分字段！请您填写所有带*的字段', 4000);
@@ -122,7 +106,6 @@ function postReportLostData(timestamp) {
         async: false,
         success: function(msg) {
             Materialize.toast('提交成功!', 4000);
-            console.log(msg);
             window.location.href = 'http://192.168.1.102:8092/bike404/web/index.php/Home/report/reportSuccess';
         },
         error: function() {
@@ -133,7 +116,6 @@ function postReportLostData(timestamp) {
 
 function postDataCheck() {
     x = !($('#user').val()) || !($('#area').val()) || !($('#brand').val()) || !($('#color').val()) || !($('#type').val()) || !($('#lost_time_pickadate').val()) || !($('#info').val()) || !($('#email').val());
-    console.log(x);
     if (x) {
         return false;
     }

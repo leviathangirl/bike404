@@ -40,7 +40,6 @@ class ReportController extends Controller
     {
         header('Content-Type: text/plain; charset=UTF-8');
         //I('data.file1','','',$_FILES);
-        file_put_contents('/tmp/tmp.log', 'Call ReportController postReportLostImage() $_FILES'.":\n".print_r($_FILES, true)."\n\n", FILE_APPEND);
 
         if (!$_FILES['files']['name']) {
             echo 'error';
@@ -49,15 +48,9 @@ class ReportController extends Controller
 
         $files = $_FILES['files'];
         $files = $this->reArrayFiles($files);
-
-        file_put_contents('/tmp/tmp.log', 'Call ReportController postReportLostImage() reArrayFiles() $_FILES'.":\n".print_r($files, true)."\n\n", FILE_APPEND);
-
         $uploaddir_root = C('POST_TMP');
         $timestamp = date('YmdHis', time()).mt_rand();
-
         $uploaddir = $uploaddir_root.$timestamp;
-        file_put_contents('/tmp/tmp.log', 'Call ReportController postReportLostImage() $uploaddir'.":\n".print_r($uploaddir, true)."\n\n", FILE_APPEND);
-
         mkdir($uploaddir);
         foreach ($files as $val) {
             move_uploaded_file($val['tmp_name'], $uploaddir.'/'.$val['name']);
@@ -71,7 +64,6 @@ class ReportController extends Controller
     public function postReportLostData()
     {
         $data = $_POST;
-        file_put_contents('/tmp/tmp.log', 'Call ReportController postReportLostData() $data'.":\n".print_r($data, true)."\n\n", FILE_APPEND);
         $datacheck = $this->postDataCheck();
         if (!$datacheck) {
             header('HTTP/1.1 400 Bad Request');
