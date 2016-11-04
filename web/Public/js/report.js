@@ -13,9 +13,7 @@ $(document).ready(function() {
 
     $('#uploadimg').on('click', uploadimgBtnOnClick);
 
-    $('#submit-info').on('click', function() {
-        postReportLostData(1);
-    });
+    $('#submit-info').on('click', postReportLostData);
 });
 
 function uploadimgBtnOnClick(event) {
@@ -80,22 +78,22 @@ function updateProgress(event) {
     }
 }
 
-function postReportLostData(timestamp) {
-    if (!timestamp) {
-        return false;
-    }
+function postReportLostData() {
     reportlostdata = new FormData(document.getElementById('reportlostform'));
 
     var img_info_id;
     img_info_id = $('#img-info-id').prop('value');
-    reportlostdata.append('timestamp', timestamp);
+    reportlostdata.append('timestamp', 1);
     reportlostdata.append('img_info_id', img_info_id);
 
     var datacheck = postDataCheck();
     if (!datacheck) {
         Materialize.toast('您提交的信息缺少部分字段！请您填写所有带*的字段', 4000);
+        return false;
     }
 
+    $('#submit-info').off('click');
+    $('#submit-info').addClass('disabled');
     $.ajax({
         type: 'POST',
         url: '/index.php/Home/report/postReportLostData',
@@ -103,13 +101,16 @@ function postReportLostData(timestamp) {
         processData: false,  // 告诉jQuery不要去处理发送的数据
         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
         dataType: 'json',
-        async: false,
+        async: true,
         success: function(msg) {
             Materialize.toast('提交成功!', 4000);
             window.location.href = window.location.protocol + '//' + window.location.hostname + '/index.php/Home/report/reportSuccess?id=' + msg;
         },
-        error: function() {
+        error: function(msg) {
+            Materialize.toast('提交失败!', 4000);
             console.log(msg);
+            $('#submit-info').on('click', postReportLostData);
+            $('#submit-info').removeClass('disabled');
         }
     });
 }
