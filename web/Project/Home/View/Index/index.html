@@ -6,6 +6,7 @@
         <title>My bike 404 not found</title>
 
         <include file="Public/head"/>
+        <meta name="keywords" content="{$Think.config.META_KEYWORDS}">
     </head>
 
     <body>
@@ -13,18 +14,18 @@
         <include file="Public/navbar"/>
         <div class="container">
             <h5>这是一个什么网站？这个网站有什么用？为什么要做这个网站？</h5>
-            <p>此网站是用于收集并统计自行车丢失情况的网站。
-                <br>此网站记录了各失主丢失车辆的信息，并对外提供API接口用于查询和展示。
+            <p>此网站是用于记录并统计自行车丢失情况的网站。
+                <br>此网站意图记录各失主丢失车辆的信息，并对外提供API接口用于查询和展示。
                 <br>这个网站的想法源于
-                <strong>NotFound Project</strong>。目前本站仍处于开发阶段。
-                <br>关于本站的更多信息，请点击左上角的「关于本站」
+                <strong>NotFound Project</strong>
+                。
+                <br>目前本站仍处于开发阶段。
             </p>
             <ul class="collapsible" data-collapsible="expandable">
                 <li>
                     <div class="collapsible-header active">
                         <strong>序号：地区：品牌：颜色：车型：报警状态：找回状态</strong>
                     </div>
-
                     <div class="collapsible-body"></div>
                 </li>
                 <volist name="result" id="result">
@@ -43,6 +44,7 @@
                                 <elseif condition="($result.status eq 4)"/>已通过其他网站找回
                                 <elseif condition="($result.status eq 5)"/>已购回找回
                             </if>
+                            <span class="secondary-content">点击展开</span>
                         </div>
                         <div class="collapsible-body">
                             <p>
@@ -61,12 +63,7 @@
                     </li>
                 </volist>
             </ul>
-            <script type="text/javascript">
-                var cnzz_protocol = (("https:" == document.location.protocol)
-                    ? " https://"
-                    : " http://");
-                document.write(unescape("%3Cspan id='cnzz_stat_icon_1259042697'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1259042697' type='text/javascript'%3E%3C/script%3E"));
-            </script>
+            <include file="Public/statistics"/>
         </div>
     </body>
 

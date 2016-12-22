@@ -8,6 +8,101 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover,{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>Report页面 <b>index</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>', 'utf-8');
+        //$this->redirect('About/index', null, 1, '重定向至[关于本站]页面中...');
+        $this->display();
+    }
+
+    public function lost()
+    {
+        $this->display('report_lost');
+    }
+
+    public function clue()
+    {
+        $this->display('report_clue');
+    }
+
+    public function reportSuccess()
+    {
+        $id = I('id');
+        $ReportDataModel = D('ReportData');
+        $result = $ReportDataModel->getbyid($id);
+        if (!$result) {
+            $this->error('您请求的地址有误，3秒后跳转至主页', C('SITE_URL'));
+            exit();
+        }
+
+        $this->assign('result', $result);
+        $this->display('report_success');
+    }
+
+    public function postReportLostImage()
+    {
+        header('Content-Type: text/plain; charset=UTF-8');
+        //I('data.file1','','',$_FILES);
+
+        if (!$_FILES['files']['name']) {
+            echo 'error';
+            exit();
+        }
+
+        $files = $_FILES['files'];
+        $files = $this->reArrayFiles($files);
+        $uploaddir_root = C('POST_TMP');
+        $timestamp = date('YmdHis', time()).mt_rand();
+        $uploaddir = $uploaddir_root.$timestamp;
+        mkdir($uploaddir);
+        foreach ($files as $val) {
+            move_uploaded_file($val['tmp_name'], $uploaddir.'/'.$val['name']);
+        }
+
+        echo $timestamp;
+
+        exit();
+    }
+
+    public function postReportLostData()
+    {
+        $data = $_POST;
+        $datacheck = $this->postDataCheck();
+        if (!$datacheck) {
+            header('HTTP/1.1 400 Bad Request');
+            exit();
+        }
+        $ReportDataModel = D('ReportData');
+        $result = $ReportDataModel->saveReportData($data);
+        echo $result;
+    }
+
+    public function postclue()
+    {
+    }
+
+    private function reArrayFiles($file)
+    {
+        $file_ary = array();
+        $file_count = count($file['name']);
+        $file_key = array_keys($file);
+
+        for ($i = 0;$i < $file_count;++$i) {
+            foreach ($file_key as $val) {
+                $file_ary[$i][$val] = $file[$val][$i];
+            }
+        }
+
+        return $file_ary;
+    }
+
+    private function postDataCheck($data)
+    {
+        $invalid = false;
+        $keys = array_keys($data);
+        $check_keys = array('user','area','brand','color','alerted_police','status','lost_time_pickadate','info','email','timestamp','img_info_id');
+        foreach ($check_keys as $key) {
+            if (!in_array($key, $keys)) {
+                $invalid = true;
+            }
+        }
+        return $invalid;
     }
 }

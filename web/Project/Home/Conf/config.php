@@ -11,8 +11,11 @@ return array(
     'SITE_URL' => 'http://192.168.214.130/bike404/web/index.php/Home/',
     'IMG_PREFIX' => 'http://192.168.214.130/bike404/web/Public/temp/',
     //'IMGTHUMBNAIL_PREFIX'    => 'http://192.168.214.130/ImageThumbnail/index.php?img=',
-    'LASTMODIFIED_TIME' => 1463361460,
+    'LASTMODIFIED_TIME' => 1478227919,
+    'BIKE404_VERSION' => '0.2.1-Beta',
+    'META_KEYWORDS' => 'BIKE404,BIKE,404,BIKE404公益,自行车,被盗,公益,丢失,盗窃,开源,NotFound',
 
+    'POST_TMP' => '/var/www/bike404/web/tmp_img/',
     'URL_ROUTER_ON' => true,
     'URL_ROUTE_RULES' => array(
         array('sitemap.xml', 'tools/sitemap', null, array('method' => 'get')),

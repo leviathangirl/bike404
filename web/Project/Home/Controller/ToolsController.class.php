@@ -13,8 +13,6 @@ class ToolsController extends BaseController
 
     public function basic()
     {
-        $SITE_URL = C('SITE_URL');
-        $this->assign('SITE_URL', $SITE_URL);
         $this->display();
     }
 
@@ -35,16 +33,18 @@ class ToolsController extends BaseController
         $lastestmod = $default_lastmod;
 
         $urlmap = array();
-        $urlmap[0] = array('loc' => C('SITE_URL'),'lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 1.0);
-        $urlmap[1] = array('loc' => C('SITE_URL').'about','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.9);
-        $urlmap[2] = array('loc' => C('SITE_URL').'tools/basic','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.9);
+        $urlmap[] = array('loc' => C('SITE_URL'),'lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 1.0);
+        $urlmap[] = array('loc' => C('SITE_URL').'about','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL').'tools/basic','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL').'report/lost','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
+        $urlmap[] = array('loc' => C('SITE_URL').'report/clue','lastmod' => date(DATE_W3C, $default_lastmod),'changefreq' => $default_changefreq,'priority' => 0.8);
 
         $ListModel = D('List');
         $list = $ListModel->getall();
 
         foreach ($list as $key => $value) {
             $update_time = date(DATE_W3C, $value['update_time']);
-            $interval = $default_lastmod - $value['update_time'];
+            $interval = time() - $value['update_time'];
 
             if (!$lastestmod || $lastestmod < $value['update_time']) {
                 $lastestmod = $value['update_time'];
@@ -69,12 +69,12 @@ class ToolsController extends BaseController
                     break;
                 case (2592000 <= $interval && $interval < 31536000):
                     $changefreq = 'monthly';
-                    $priority = 0.7;
+                    $priority = 0.6;
                     break;
 
                 case (31536000 <= $interval):
                     $changefreq = 'yearly';
-                    $priority = 0.5;
+                    $priority = 0.3;
                     break;
 
                 default:
@@ -87,6 +87,8 @@ class ToolsController extends BaseController
         }
 
         $urlmap[0] = array('loc' => C('SITE_URL'),'lastmod' => date(DATE_W3C, $lastestmod), 'changefreq' => $default_changefreq,'priority' => 1.0);
+
+        //echo nl2br(print_r($urlmap, true));
 
         $generated_on = date(DATE_W3C, time());
 

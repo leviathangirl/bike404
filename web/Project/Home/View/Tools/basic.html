@@ -6,7 +6,7 @@
         <title>API(基本)————My bike 404 not found</title>
 
         <include file="Public/head"/>
-
+        <meta name="keywords" content="{$Think.config.META_KEYWORDS},API,接口">
     </head>
 
     <body>
@@ -26,25 +26,26 @@
                     </div>
                     <div id="web_interface" class="section scrollspy">
                         <h4>Web接口：</h4>
-                        <p>Web接口可直接插入到您的网站中的 404 页面之中。</p>
+                        <p>Web接口使用 iframe 方式，您可以直接插入到您的网站中的 404 页面之中。</p>
                     </div>
                     <div id="web_interface_random" class="section scrollspy">
                         <h5>- 随机获取一条丢失车辆的信息：</h5>
+                        <p>您可以随机获取一条丢失车辆的信息，帮助他人</p>
                         <ul>
                             <li>
                                 <p>请求方式：GET</p>
                             </li>
                             <li>
-                                <p>请求地址：<code>{$SITE_URL}web/random</code>
+                                <p>请求地址：<code>{$Think.config.SITE_URL}web/random</code>
                                 </p>
                             </li>
                             <li>
-                                <p>参数：无</p>
+                                <p>请求参数：无</p>
                             </li>
                             <li>
                                 <p>参考代码：</p>
                                 <blockquote>
-                                    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;iframe</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src=&quot;</span><span class="markup underline link http hyperlink"><span>{$SITE_URL}web/random</span></span><span>&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>frameborder=&quot;0&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&gt;</span></span></span></div></pre>
+                                    <include file="Public/iframe_example_random"/>
                                 </blockquote>
                             </li>
                         </ul>
@@ -52,37 +53,40 @@
 
                     <div id="web_interface_getbyid" class="section scrollspy">
                         <h5>- 获取指定丢失车辆的信息：</h5>
+                        <p>如果您有丢失车辆，需要在自己的网站上着重显示，则可以使用这个接口</p>
                         <ul>
                             <li>
                                 <p>请求方式：GET</p>
                             </li>
                             <li>
-                                <p>请求地址：<code>{$SITE_URL}web/getbyid?id={id}</code>
+                                <p>请求地址：<code>{$Think.config.SITE_URL}web/getbyid?id=<i>{id}</i>
+                                    </code>
                                 </p>
                             </li>
                             <li>
-                                <p>参数：{id}指定条目的ID</p>
+                                <p>参数：<i>{id}</i>指定条目的ID</p>
                             </li>
                             <li>
                                 <p>参考代码：</p>
                                 <blockquote>
-                                    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;iframe</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src=&quot;</span><span class="markup underline link http hyperlink"><span>{$SITE_URL}web/random</span></span><span>&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>frameborder=&quot;0&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&gt;</span></span></span></div></pre>
+                                    <include file="Public/iframe_example_getbyid"/>
                                 </blockquote>
                             </li>
                         </ul>
                     </div>
                     <div id="json_interface" class="section scrollspy">
                         <h4>JSON接口：</h4>
-                        <p>所有中文都经由 JSON_UNESCAPED_UNICODE 编码。</p>
+                        <p>JSON 接口适合有一定动手能力的用户使用。所有中文都经由 JSON_UNESCAPED_UNICODE 编码。</p>
                     </div>
                     <div id="json_interface_random" class="section scrollspy">
                         <h5>- 随机获取一条丢失车辆的信息：</h5>
+                        <p>您可以随机获取一条丢失车辆的信息，帮助他人</p>
                         <ul>
                             <li>
                                 <p>请求方式：GET</p>
                             </li>
                             <li>
-                                <p>请求地址：<code>{$SITE_URL}api/get</code>
+                                <p>请求地址：<code>{$Think.config.SITE_URL}api/get</code>
                                 </p>
                             </li>
                             <li>
@@ -91,7 +95,7 @@
                             <li>
                                 <p>返回数据示例：</p>
                                 <blockquote>
-                                    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;error_code&quot;:&nbsp;0,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&quot;error_msg&quot;:&nbsp;&quot;success&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&quot;result&quot;:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;id&quot;:&nbsp;&quot;3&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;\u5bfb\u8f66&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;keyword&quot;:&nbsp;null,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;area&quot;:&nbsp;&quot;\u5317\u4eac&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;brand&quot;:&nbsp;&quot;\u7f8e\u5229\u8fbe&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;sub_brand&quot;:&nbsp;&quot;\u4ed8\u5229\u5a01&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;color&quot;:&nbsp;&quot;\u6a59\u8272&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;:&nbsp;&quot;\u5c71\u5730\u8f66&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;alerted_police&quot;:&nbsp;&quot;0&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;status&quot;:&nbsp;&quot;0&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;info&quot;:&nbsp;&quot;\u672c\u4eba\u4e8e2016\u5e744\u670820\u65e5\u65e9\u4e0a\u7ea67:50\u65f6\u5c06\u81ea\u884c\u8f66\u505c\u5728\u56de\u9f99\u89c2\u4e1c\u5927\u8857\u5730\u94c1\u7ad9D\u53e3\u505c\u8f66\u68da\u5185\u3002\u665a\u4e0a19:20\u65f6\u53d1\u73b0\u88ab\u76d7\u3002\u56e0\u4e3a\u81ea\u5df1\u4e0d\u662f\u65e5\u672c\u4eba\uff0c\u88ab\u76d7\u8f66\u8f86\u4ef7\u503c\u4e0d\u8fc7\u4e07\u6240\u4ee5\u6ca1\u6709\u62a5\u8b66\u3002\u88ab\u76d7\u7684\u662f\u4e00\u8f86\u5c4e\u9ec4\u8272\u7f8e\u5229\u8fbe\u4ed8\u5229\u5a01500\uff0c\u6b64\u8f66\u578b\u5728\u5317\u4eac\u5e76\u4e0d\u591a\u89c1\u3002\u914d\u56fe\u662f\u53bb\u5e74\u62cd\u7684\uff0c\u4e22\u7684\u65f6\u5019\u6ca1\u6709\u8f66\u7b50\uff0c\u5e74\u521d\u66f4\u6362\u8fc7\u7259\u76d8\u62a4\u76d8\u548c\u652f\u6491\u67b6\u3002&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;image&quot;:&nbsp;[</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20140513_191311.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20151220_140416.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20160214_175001.jpg&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;http:\/\/192.168.214.130\/bike404\/web\/Public\/temp\/3\/IMG_20160214_175010.jpg&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;user&quot;:&nbsp;&quot;admin&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;:&nbsp;&quot;admin@email.com&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;contact&quot;:&nbsp;&quot;15600000000&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;descrpition&quot;:&nbsp;null,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;uuid&quot;:&nbsp;&quot;00000000-0000-0000-0000-000000000000&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;lost_time&quot;:&nbsp;&quot;2016-04-20&nbsp;00:00:00&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;create_time&quot;:&nbsp;&quot;2016-04-25&nbsp;11:24:51&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;update_time&quot;:&nbsp;&quot;2016-04-25&nbsp;11:24:51&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre>
+                                    <include file="Public/json_example"/>
                                 </blockquote>
                             </li>
                         </ul>
@@ -107,8 +111,70 @@
                             <li>color：丢失车辆的颜色</li>
                             <li>type：丢失车辆的车型</li>
                             <li>alerted_police：报警状态。0为未报警，1为已报警</li>
-                            <li>status：丢失状态。0为未找回，1为已由自己找回，2为已通过本站信息找回，3为通过公安找回，4为通过其他网站找回，5为自己购回</li>
+                            <li>status：丢失状态。
+                                <ul>
+                                    <li>- 0为未找回</li>
+                                    <li>- 1为已由自己找回</li>
+                                    <li>- 2为已通过本站信息找回</li>
+                                    <li>- 3为通过公安找回</li>
+                                    <li>- 4为通过其他网站找回</li>
+                                    <li>- 5为自己购回</li>
+                                </ul>
+                            </li>
                             <li>info：其他详细信息</li>
+                            <li>image：丢失车辆的照片地址</li>
+                            <li>lost_time：车辆丢失时间</li>
+                            <li>create_time：条目创建时间</li>
+                            <li>update_time：条目更新时间</li>
+                            <li>URL：此条目的信息页面地址</li>
+                        </ul>
+                    </div>
+                    <div id="json_interface_getbyid" class="section scrollspy">
+                        <h5>- 获取指定丢失车辆的信息：</h5>
+                        <p>如果您有丢失车辆，需要在自己的网站上着重显示，则可以使用这个接口</p>
+                        <ul>
+                            <li>
+                                <p>请求方式：GET</p>
+                            </li>
+                            <li>
+                                <p>请求地址：<code>{$Think.config.SITE_URL}api/getbyid?id=<i>{id}</i>
+                                    </code>
+                                </p>
+                            </li>
+                            <li>
+                                <p>请求参数：<i>{id}</i>指定条目的ID</p>
+                            </li>
+                            <li>
+                                <p>返回数据示例：</p>
+                                <blockquote>
+                                    <include file="Public/json_example"/>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <h6>返回数据说明：</h6>
+                        <ul>
+                            <li>error_code：返回数据状态码，为0表示正确，不为0表示出错</li>
+                            <li>error_msg：返回数据状态信息</li>
+                            <li>result：查询结果数据：</li>
+                            <li>id：查询结果ID</li>
+                            <li>area：丢失车辆的地区</li>
+                            <li>brand：丢失车辆的品牌</li>
+                            <li>sub_brand：丢失车辆的次级品牌</li>
+                            <li>color：丢失车辆的颜色</li>
+                            <li>type：丢失车辆的车型</li>
+                            <li>alerted_police：报警状态。0为未报警，1为已报警</li>
+                            <li>status：丢失状态。
+                                <ul>
+                                    <li>- 0为未找回</li>
+                                    <li>- 1为已由自己找回</li>
+                                    <li>- 2为已通过本站信息找回</li>
+                                    <li>- 3为通过公安找回</li>
+                                    <li>- 4为通过其他网站找回</li>
+                                    <li>- 5为自己购回</li>
+                                </ul>
+                            </li>
+                            <li>info：其他详细信息</li>
+                            <li>image：丢失车辆的照片地址</li>
                             <li>lost_time：车辆丢失时间</li>
                             <li>create_time：条目创建时间</li>
                             <li>update_time：条目更新时间</li>
@@ -137,10 +203,14 @@
                             <li>
                                 <a href="#json_interface_random">- 随机获取</a>
                             </li>
+                            <li>
+                                <a href="#json_interface_getbyid">- 获取指定</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <include file="Public/statistics"/>
         </div>
     </body>
 </html>

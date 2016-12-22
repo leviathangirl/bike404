@@ -1,7 +1,13 @@
 User-agent: *
 Disallow: /Public/materialize/
+Disallow: /Public/*.min.*
 Disallow: /Public/js/jquery
 Disallow: /ThinkPHP/
 Disallow: /Project/
 Disallow: /index.php/Home/web
 Disallow: /index.php/Home/api
+Disallow: /index.php/Home/report/reportSuccess
+Disallow: /apple-app-site-association
+Disallow: /m/
+Disallow: /mobile/
+Sitemap:  http://bike404.catscarlet.com/index.php/Home/tools/sitemap
